@@ -18,7 +18,8 @@ const service = new Service(process.env.VUE_CLI_CONTEXT || process.cwd(), {
 })
 // 删除 cache 目录
 del.sync(['node_modules/.cache'])
-
+"build:h5:ui:liyishan": "cross-env NODE_ENV=production UNI_WATCH=false UNI_PLATFORM=h5 UNI_UI=true node build/webpack.config.js",
+// 
 let name = 'index'
 let filename = ''
 let entry = './lib/' + process.env.UNI_PLATFORM + '/main.js'
