@@ -10,6 +10,7 @@ const requireComponents = [
 ]
 
 requireComponents.forEach((components, index) => {
+  console.log(components.keys())
   components.keys().forEach(fileName => {
     // 获取组件配置
     const componentModule = components(fileName)
@@ -25,6 +26,8 @@ requireComponents.forEach((components, index) => {
     componentConfig.isReserved = true
 
     // 全局注册组件
+    console.log(componentConfig.name)
+    console.log(componentConfig)
     Vue.component(componentConfig.name, componentConfig)
   })
 })

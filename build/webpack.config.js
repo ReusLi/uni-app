@@ -5,19 +5,21 @@ const resolve = dir => path.resolve(__dirname, '../', dir)
 
 const pkg = require('../package.json')
 
-const externals = {}
+const externals = {
+  'vue': 'vue'
+}
 
 if (process.env.UNI_VIEW !== 'true') {
-  externals['vue'] = {
-    commonjs: 'vue',
-    commonjs2: 'vue',
-    root: 'Vue'
-  }
-  externals['vue-router'] = {
-    commonjs: 'vue-router',
-    commonjs2: 'vue-router',
-    root: 'VueRouter'
-  }
+  // externals['vue'] = {
+  //   commonjs: 'vue',
+  //   commonjs2: 'vue',
+  //   root: 'Vue'
+  // }
+  // externals['vue-router'] = {
+  //   commonjs: 'vue-router',
+  //   commonjs2: 'vue-router',
+  //   root: 'VueRouter'
+  // }
 }
 
 const alias = {
@@ -54,7 +56,7 @@ module.exports = function configureWebpack (config) {
   }
 
   return {
-    mode: 'production',
+    mode: 'development',
     devtool: false,
     externals,
     resolve: {
