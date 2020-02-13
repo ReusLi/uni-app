@@ -60,7 +60,7 @@ module.exports = function configureWebpack (config) {
     output: {
       // filename: 'index.js',
       // path: __dirname,
-      libraryTarget: 'amd'
+      // libraryTarget: 'amd'
     },
     resolve: {
       alias

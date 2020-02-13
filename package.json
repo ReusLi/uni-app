@@ -8,7 +8,6 @@
     "dev:h5": "npm run lint && cross-env NODE_ENV=production UNI_WATCH=true UNI_PLATFORM=h5 node build/build.js",
     "build:h5": "npm run lint && cross-env NODE_ENV=production UNI_WATCH=false UNI_PLATFORM=h5 node build/build.js",
     "build:h5:ui": "cross-env NODE_ENV=production UNI_WATCH=false UNI_PLATFORM=h5 UNI_UI=true node build/build.js",
-    "build:h5:ui:liyishan": "cross-env NODE_ENV=production UNI_WATCH=false UNI_PLATFORM=h5 UNI_UI=true node build/webpack.config.js",
     "build:app-plus": "cross-env UNI_PLATFORM=app-plus rollup -c build/rollup.config.mp.js",
     "build:app:all": "npm run lint && npm run build:app:nvue && npm run build:app:legacy && npm run build:app:service && npm run build:app:view",
     "build:app:v3": "npm run lint && npm run build:app:service && npm run dev:app:view",
