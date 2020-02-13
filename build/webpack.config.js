@@ -54,9 +54,14 @@ module.exports = function configureWebpack (config) {
   }
 
   return {
-    mode: 'production',
+    mode: 'development',
     devtool: false,
     externals,
+    output: {
+      // filename: 'index.js',
+      // path: __dirname,
+      // libraryTarget: 'amd'
+    },
     resolve: {
       alias
     },

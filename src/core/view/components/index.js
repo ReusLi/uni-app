@@ -28,3 +28,5 @@ requireComponents.forEach((components, index) => {
     Vue.component(componentConfig.name, componentConfig)
   })
 })
+
+export default Vue
