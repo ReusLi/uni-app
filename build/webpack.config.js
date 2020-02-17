@@ -56,7 +56,8 @@ module.exports = function configureWebpack (config) {
   }
 
   return {
-    mode: 'development',
+    mode: 'production',
+    // mode: 'development',
     devtool: false,
     externals,
     resolve: {

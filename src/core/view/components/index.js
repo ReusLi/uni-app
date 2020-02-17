@@ -21,7 +21,7 @@ requireComponents.forEach((components, index) => {
 
     componentConfig.mixins.push(animation)
 
-    componentConfig.name = 'VUni' + componentConfig.name
+    componentConfig.name = 'vuni-' + componentConfig.name.toLocaleLowerCase()
 
     componentConfig.isReserved = true
 
