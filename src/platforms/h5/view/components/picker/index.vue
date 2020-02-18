@@ -273,6 +273,9 @@ export default {
     }
   },
   created () {
+    console.log('========created================')
+    console.log(this.props)
+    console.log('========created================')
     this.$dispatch('Form', 'uni-form-group-update', {
       type: 'add',
       vm: this

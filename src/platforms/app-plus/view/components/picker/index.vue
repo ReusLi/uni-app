@@ -123,6 +123,9 @@ export default {
     }
   },
   created () {
+    console.log('===================reus======================')
+    console.log(this.props)
+    console.log(this.$props)
     this.$dispatch('Form', 'uni-form-group-update', {
       type: 'add',
       vm: this

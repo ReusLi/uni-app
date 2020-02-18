@@ -8,6 +8,9 @@ const requireComponents = [
   require.context('./', true, /index\.vue$/),
   require.context('../../../platforms/' + __PLATFORM__ + '/view/components', true, /index\.vue$/)
 ]
+console.log('=====================')
+console.log(__PLATFORM__)
+console.log('=====================')
 
 requireComponents.forEach((components, index) => {
   console.log(components.keys())
@@ -21,7 +24,8 @@ requireComponents.forEach((components, index) => {
 
     componentConfig.mixins.push(animation)
 
-    componentConfig.name = 'vuni-' + componentConfig.name.toLocaleLowerCase()
+    // componentConfig.name = 'vuni-' + componentConfig.name.toLocaleLowerCase()
+    componentConfig.name = 'VUni' + componentConfig.name
 
     componentConfig.isReserved = true
 
