@@ -9,11 +9,10 @@ const requireComponents = [
   require.context('../../../platforms/' + __PLATFORM__ + '/view/components', true, /index\.vue$/)
 ]
 console.log('=====================')
-console.log(__PLATFORM__)
+console.log(requireComponents)
 console.log('=====================')
 
 requireComponents.forEach((components, index) => {
-  console.log(components.keys())
   components.keys().forEach(fileName => {
     // 获取组件配置
     const componentModule = components(fileName)
@@ -25,13 +24,15 @@ requireComponents.forEach((components, index) => {
     componentConfig.mixins.push(animation)
 
     // componentConfig.name = 'vuni-' + componentConfig.name.toLocaleLowerCase()
-    componentConfig.name = 'VUni' + componentConfig.name
 
     componentConfig.isReserved = true
 
     // 全局注册组件
+    console.log(componentConfig.name.toLocaleLowerCase())
+    Vue.component(componentConfig.name.toLocaleLowerCase(), componentConfig)
+
+    componentConfig.name = 'VUni' + componentConfig.name
     console.log(componentConfig.name)
-    console.log(componentConfig)
     Vue.component(componentConfig.name, componentConfig)
   })
 })
