@@ -11,7 +11,7 @@
 
 <script>
 // #ifdef APP-NVUE
-const animation = uni.requireNativePlugin('animation')
+// const animation = uni.requireNativePlugin('animation')
 // #endif
 /**
 	 * Transition 过渡动画
@@ -126,23 +126,6 @@ export default {
     },
     _animation (type) {
       let styles = this.getTranfrom(type)
-      // #ifdef APP-NVUE
-      if (!this.$refs['ani']) return
-      animation.transition(this.$refs['ani'].ref, {
-        styles,
-        duration: this.duration, // ms
-        timingFunction: 'ease',
-        needLayout: false,
-        delay: 0 // ms
-      }, () => {
-        if (!type) {
-          this.isShow = false
-        }
-        this.$emit('change', {
-          detail: this.isShow
-        })
-      })
-      // #endif
       // #ifndef APP-NVUE
       this.transform = ''
       for (let i in styles) {

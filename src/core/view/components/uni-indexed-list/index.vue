@@ -62,7 +62,7 @@
 import uniIcons from '../uni-icons/index.vue'
 import uniIndexedListItem from './uni-indexed-list-item.vue'
 // #ifdef APP-NVUE
-const dom = weex.requireModule('dom')
+// const dom = weex.requireModule('dom')
 // #endif
 // #ifdef APP-PLUS
 function throttle (func, delay) {

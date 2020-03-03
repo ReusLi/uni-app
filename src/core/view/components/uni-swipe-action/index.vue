@@ -42,10 +42,6 @@ export default {
         }
         // #endif
 
-        // nvue 执行以下操作
-        // #ifdef APP-NVUE || MP-BAIDU || MP-QQ || MP-TOUTIAO
-        item.close()
-        // #endif
       })
     }
   }

@@ -28,7 +28,7 @@ requireComponents.forEach((components, index) => {
     componentConfig.isReserved = true
 
     // 全局注册组件
-    if (componentConfig.name.indexOf('Uni') === -1) {
+    if (componentConfig.name && componentConfig.name.indexOf && componentConfig.name.indexOf('Uni') === -1) {
       componentConfig.name = 'VUni' + componentConfig.name
     }
     console.log(componentConfig.name)

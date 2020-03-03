@@ -69,8 +69,8 @@
 <script>
 import uniIcons from '../uni-icons/index.vue'
 // #ifdef APP-NVUE
-const dom = weex.requireModule('dom')
-const animation = weex.requireModule('animation')
+// const dom = weex.requireModule('dom')
+// const animation = weex.requireModule('animation')
 // #endif
 
 /**
@@ -185,11 +185,6 @@ export default {
       this.initSize()
     })
   },
-  // #ifdef APP-NVUE
-  beforeDestroy () {
-    this.stopAnimation = true
-  },
-  // #endif
   methods: {
     initSize () {
       if (this.scrollable) {
@@ -231,68 +226,9 @@ export default {
           }, 1000)
         })
         // #endif
-        // #ifdef APP-NVUE
-        dom.getComponentRect(this.$refs['animationEle'], (res) => {
-          let winWidth = uni.getSystemInfoSync().windowWidth
-          this.textWidth = res.size.width
-          animation.transition(this.$refs['animationEle'], {
-            styles: {
-              transform: `translateX(-${winWidth}px)`
-            },
-            duration: 0,
-            timingFunction: 'linear',
-            delay: 0
-          }, () => {
-            if (!this.stopAnimation) {
-              animation.transition(this.$refs['animationEle'], {
-                styles: {
-                  transform: `translateX(-${this.textWidth}px)`
-                },
-                timingFunction: 'linear',
-                duration: (this.textWidth - winWidth) / this.speed * 1000,
-                delay: 1000
-              }, () => {
-                if (!this.stopAnimation) {
-                  this.loopAnimation()
-                }
-              })
-            }
-          })
-        })
-        // #endif
       }
-      // #ifdef APP-NVUE
-      if (!this.scrollable && (this.single || this.moreText)) {
-        dom.getComponentRect(this.$refs['textBox'], (res) => {
-          this.wrapWidth = res.size.width
-        })
-      }
-      // #endif
     },
     loopAnimation () {
-      // #ifdef APP-NVUE
-      animation.transition(this.$refs['animationEle'], {
-        styles: {
-          transform: `translateX(0px)`
-        },
-        duration: 0
-      }, () => {
-        if (!this.stopAnimation) {
-          animation.transition(this.$refs['animationEle'], {
-            styles: {
-              transform: `translateX(-${this.textWidth}px)`
-            },
-            duration: this.textWidth / this.speed * 1000,
-            timingFunction: 'linear',
-            delay: 0
-          }, () => {
-            if (!this.stopAnimation) {
-              this.loopAnimation()
-            }
-          })
-        }
-      })
-      // #endif
     },
     clickMore () {
       this.$emit('getmore')

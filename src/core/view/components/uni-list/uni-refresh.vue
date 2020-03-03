@@ -35,9 +35,6 @@
                 this.$emit("refresh", e);
             },
             onpullingdown(e) {
-                // #ifdef APP-NVUE
-                this.$emit("pullingdown", e);
-                // #endif
                 // #ifndef APP-NVUE
                 var detail = {
                     viewHeight: 90,

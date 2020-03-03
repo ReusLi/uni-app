@@ -11,7 +11,7 @@
 
 <script>
 // #ifdef APP-NVUE
-const dom = uni.requireNativePlugin('dom')
+// const dom = uni.requireNativePlugin('dom')
 // #endif
 
 /**
@@ -94,12 +94,6 @@ export default {
           this.width = parseInt((ret[0].width - 1) / this.column) + 'px'
           fn(this.width)
         })
-      // #endif
-      // #ifdef APP-NVUE
-      dom.getComponentRect(this.$refs['uni-grid'], (ret) => {
-        this.width = parseInt((ret.size.width - 1) / this.column) + 'px'
-        fn(this.width)
-      })
       // #endif
     }
   }

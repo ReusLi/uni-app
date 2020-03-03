@@ -1,6 +1,3 @@
-// #ifdef APP-NVUE
-const dom = weex.requireModule('dom')
-// #endif
 export default {
   data () {
     return {
@@ -136,23 +133,6 @@ export default {
           }
         })
         .exec()
-      // #endif
-      // #ifdef APP-NVUE
-      dom.getComponentRect(this.$refs['selector-content-hock'], (data) => {
-        if (this.position.content) return
-        this.position.content = data.size
-      })
-      dom.getComponentRect(this.$refs['selector-button-hock'], (data) => {
-        if (this.position.button) return
-        this.position.button = data.size
-        if (this.autoClose) return
-        if (this.show) {
-          this.open()
-        } else {
-          this.close()
-        }
-      })
-      // #endif
     }
   }
 }
