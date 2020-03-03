@@ -1,62 +1,62 @@
-<template><VUniVuniview
+<template><VUniView
   :class="{ 'uni-card--full': isFull === true || isFull === 'true', 'uni-card--shadow': isShadow === true || isShadow === 'true' }"
   class="uni-card"
   @click="onClick">
-  <VUniVuniview
+  <VUniView
     v-if="mode === 'style'"
     class="uni-card__thumbnailimage">
-    <VUniVuniview class="uni-card__thumbnailimage-box">
-      <VUniVuniimage
+    <VUniView class="uni-card__thumbnailimage-box">
+      <VUniImage
         :src="thumbnail"
         class="uni-card__thumbnailimage-image"
-        mode="aspectFill"/></VUniVuniview>
-    <VUniVuniview
+        mode="aspectFill"/></VUniView>
+    <VUniView
       v-if="title"
-      class="uni-card__thumbnailimage-title"><VUniVunitext class="uni-card__thumbnailimage-title-text">{{ title }}</VUniVunitext></VUniVuniview>
-  </VUniVuniview>
-  <VUniVuniview
+      class="uni-card__thumbnailimage-title"><VUnitext class="uni-card__thumbnailimage-title-text">{{ title }}</VUnitext></VUniView>
+  </VUniView>
+  <VUniView
     v-if="mode === 'title'"
     class="uni-card__title">
-    <VUniVuniview class="uni-card__title-header">
-      <VUniVuniimage
+    <VUniView class="uni-card__title-header">
+      <VUniImage
         :src="thumbnail"
         class="uni-card__title-header-image"
-        mode="scaleToFill"/></VUniVuniview>
-    <VUniVuniview class="uni-card__title-content">
-      <VUniVunitext class="uni-card__title-content-title">{{ title }}</VUniVunitext>
-      <VUniVunitext class="uni-card__title-content-extra">{{ extra }}</VUniVunitext>
-    </VUniVuniview>
-  </VUniVuniview>
+        mode="scaleToFill"/></VUniView>
+    <VUniView class="uni-card__title-content">
+      <VUnitext class="uni-card__title-content-title">{{ title }}</VUnitext>
+      <VUnitext class="uni-card__title-content-extra">{{ extra }}</VUnitext>
+    </VUniView>
+  </VUniView>
   <!-- 标题 -->
-  <VUniVuniview
+  <VUniView
     v-if="mode === 'basic' && title"
     class="uni-card__header">
-    <VUniVuniview
+    <VUniView
       v-if="thumbnail"
       class="uni-card__header-extra-img-VUniView">
-      <VUniVuniimage
+      <VUniImage
         :src="thumbnail"
-        class="uni-card__header-extra-img"/></VUniVuniview>
-    <VUniVunitext class="uni-card__header-title-text">{{ title }}</VUniVunitext>
-    <VUniVunitext
+        class="uni-card__header-extra-img"/></VUniView>
+    <VUnitext class="uni-card__header-title-text">{{ title }}</VUnitext>
+    <VUnitext
       v-if="extra"
-      class="uni-card__header-extra-text">{{ extra }}</VUniVunitext>
-  </VUniVuniview>
+      class="uni-card__header-extra-text">{{ extra }}</VUnitext>
+  </VUniView>
   <!-- 内容 -->
-  <VUniVuniview class="uni-card__content uni-card__content--pd">
-    <VUniVuniview
+  <VUniView class="uni-card__content uni-card__content--pd">
+    <VUniView
       v-if="mode === 'style' && extra"
-      class=""><VUniVunitext class="uni-card__content-extra">{{ extra }}</VUniVunitext></VUniVuniview>
-  <VUniSlot/></VUniVuniview>
+      class=""><VUnitext class="uni-card__content-extra">{{ extra }}</VUnitext></VUniView>
+  <VUniSlot/></VUniView>
   <!-- 底部 -->
-  <VUniVuniview
+  <VUniView
     v-if="note"
     class="uni-card__footer">
     <VUniSlot name="footer">
-      <VUniVunitext class="uni-card__footer-text">{{ note }}</VUniVunitext>
+      <VUnitext class="uni-card__footer-text">{{ note }}</VUnitext>
     </VUniSlot>
-  </VUniVuniview>
-</VUniVuniview>
+  </VUniView>
+</VUniView>
 </template>
 
 <script>

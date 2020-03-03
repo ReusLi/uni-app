@@ -147,7 +147,7 @@ export default {
 		right: 0;
 		flex-direction: row;
 		padding: $uni-spacing-col-base 24rpx;
-		background-color: rgba(0, 0, 0, 0.;4)
+		background-color: rgba(0, 0, 0, 0.4);
 	}
 
 	.uni-card__thumbnailimage-title-text {

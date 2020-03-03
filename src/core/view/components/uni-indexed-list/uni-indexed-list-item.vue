@@ -1,58 +1,76 @@
 <template><VUniView>
-		<VUniView v-if="loaded || list.itemIndex < 15" class="uni-indexed-list__title-wrapper">
-			<VUniText v-if="list.items && list.items.length > 0" class="uni-indexed-list__title">{{ list.key }}</VUniText>
-		</VUniView>
-		<VUniView v-if="(loaded || list.itemIndex < 15) && list.items && list.items.length > 0" class="uni-indexed-list__list">
-			<VUniView v-for="(item, index) in list.items" :key="index" class="uni-indexed-list__item" hover-class="uni-indexed-list__item--hover">
-				<VUniView class="uni-indexed-list__item-container" @click="onClick(idx, index)">
-					<VUniView class="uni-indexed-list__item-border" :class="{'uni-indexed-list__item-border--last':index===list.items.length-1}">
-						<VUniView v-if="showSelect" style="margin-right: 20rpx;">
-							<VUniUniIcons :type="item.checked ? 'checkbox-filled' : 'circle'" :color="item.checked ? '#007aff' : '#aaa'" size="24">
-						</VUniUniIcons></VUniView>
-						<VUniText class="uni-indexed-list__item-content">{{ item.name }}</VUniText>
-					</VUniView>
-				</VUniView>
-			</VUniView>
-		</VUniView>
-	</VUniView>
+  <VUniView
+    v-if="loaded || list.itemIndex < 15"
+    class="uni-indexed-list__title-wrapper">
+    <VUniText
+      v-if="list.items && list.items.length > 0"
+      class="uni-indexed-list__title">{{ list.key }}</VUniText>
+  </VUniView>
+  <VUniView
+    v-if="(loaded || list.itemIndex < 15) && list.items && list.items.length > 0"
+    class="uni-indexed-list__list">
+    <VUniView
+      v-for="(item, index) in list.items"
+      :key="index"
+      class="uni-indexed-list__item"
+      hover-class="uni-indexed-list__item--hover">
+      <VUniView
+        class="uni-indexed-list__item-container"
+        @click="onClick(idx, index)">
+        <VUniView
+          :class="{'uni-indexed-list__item-border--last':index===list.items.length-1}"
+          class="uni-indexed-list__item-border">
+          <VUniView
+            v-if="showSelect"
+            style="margin-right: 20rpx;">
+            <VUniUniIcons
+              :type="item.checked ? 'checkbox-filled' : 'circle'"
+              :color="item.checked ? '#007aff' : '#aaa'"
+              size="24"/></VUniView>
+          <VUniText class="uni-indexed-list__item-content">{{ item.name }}</VUniText>
+        </VUniView>
+      </VUniView>
+    </VUniView>
+  </VUniView>
+</VUniView>
 </template>
 
 <script>
-	import uniIcons from '../uni-icons/uni-icons.vue'
-	export default {
-		name: 'UniIndexedList',
-		components: {
-			uniIcons
-		},
-		props: {
-			loaded: {
-				type: Boolean,
-				default: false
-			},
-			idx: {
-				type: Number,
-				default: 0
-			},
-			list: {
-				type: Object,
-				default () {
-					return {}
-				}
-			},
-			showSelect: {
-				type: Boolean,
-				default: false
-			}
-		},
-		methods: {
-			onClick(idx, index) {
-				this.$emit("itemClick", {
-					idx,
-					index
-				})
-			}
-		}
-	}
+import uniIcons from '../uni-icons/index.vue'
+export default {
+  name: 'UniIndexedList',
+  components: {
+    uniIcons
+  },
+  props: {
+    loaded: {
+      type: Boolean,
+      default: false
+    },
+    idx: {
+      type: Number,
+      default: 0
+    },
+    list: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    showSelect: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    onClick (idx, index) {
+      this.$emit('itemClick', {
+        idx,
+        index
+      })
+    }
+  }
+}
 </script>
 
 <style>

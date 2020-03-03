@@ -28,10 +28,9 @@ requireComponents.forEach((components, index) => {
     componentConfig.isReserved = true
 
     // 全局注册组件
-    console.log(componentConfig.name.toLocaleLowerCase())
-    Vue.component(componentConfig.name.toLocaleLowerCase(), componentConfig)
-
-    componentConfig.name = 'VUni' + componentConfig.name
+    if (componentConfig.name.indexOf('Uni') === -1) {
+      componentConfig.name = 'VUni' + componentConfig.name
+    }
     console.log(componentConfig.name)
     Vue.component(componentConfig.name, componentConfig)
   })

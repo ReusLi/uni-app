@@ -1,12 +1,7 @@
-<template><!-- #ifdef APP-NVUE --><VUniRefresh :display="display" @refresh="onrefresh" @pullingdown="onpullingdown">
-        <VUniSlot>
-    </VUniSlot></VUniRefresh>
-    <!-- #endif -->
-    <!-- #ifndef APP-NVUE -->
+<template>
     <VUniView ref="uni-refresh" class="uni-refresh" v-show="isShow">
         <VUniSlot>
     </VUniSlot></VUniView>
-    <!-- #endif -->
 </template>
 
 <script>
