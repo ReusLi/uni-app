@@ -3,7 +3,7 @@
     :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }"
     :style="{ 'background-color': backgroundColor }"
     class="uni-navbar__content">
-    <VUniUniStatusBar v-if="statusBar">
+    <UniStatusBar v-if="statusBar">
       <VUniView
         :style="{ color: color,backgroundColor: backgroundColor }"
         class="uni-navbar__header uni-navbar__content_view">
@@ -13,7 +13,7 @@
           <VUniView
             v-if="leftIcon.length"
             class="uni-navbar__content_view">
-            <VUniUniIcons
+            <UniIcons
               :color="color"
               :type="leftIcon"
               size="24"/></VUniView>
@@ -41,7 +41,7 @@
           <VUniView
             v-if="rightIcon.length"
             class="uni-navbar__content_view">
-            <VUniUniIcons
+            <UniIcons
               :color="color"
               :type="rightIcon"
               size="24"/></VUniView>
@@ -53,13 +53,13 @@
           </VUniView>
         <VUniSlot name="right"/></VUniView>
       </VUniView>
-  </VUniUniStatusBar></VUniView>
+  </UniStatusBar></VUniView>
   <VUniView
     v-if="fixed"
     class="uni-navbar__placeholder">
-    <VUniUniStatusBar v-if="statusBar">
+    <UniStatusBar v-if="statusBar">
       <VUniView class="uni-navbar__placeholder-view"/>
-  </VUniUniStatusBar></VUniView>
+  </UniStatusBar></VUniView>
 </VUniView></template>
 
 <script>

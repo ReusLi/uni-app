@@ -8,27 +8,27 @@
     v-if="showClose === true || showClose === 'true'"
     class="uni-noticebar-close"
     @click="close">
-    <VUniUniIcons
+    <UniIcons
       :color="color"
       type="closefill"
       size="12"/></VUniView>
   <VUniView
     v-if="showIcon === true || showIcon === 'true'"
     class="uni-noticebar-icon">
-    <VUniUniIcons
+    <UniIcons
       :color="color"
       type="sound"
       size="14"/></VUniView>
   <!-- #endif -->
   <!-- #ifndef MP-ALIPAY -->
-  <VUniUniIcons
+  <UniIcons
     v-if="showClose === true || showClose === 'true'"
     :color="color"
     class="uni-noticebar-close"
     type="closefill"
     size="12"
     @click="close">
-    <VUniUniIcons
+    <UniIcons
       v-if="showIcon === true || showIcon === 'true'"
       :color="color"
       class="uni-noticebar-icon"
@@ -59,11 +59,11 @@
           v-if="moreText"
           :style="{ color: moreColor }"
           class="uni-noticebar__more-text">{{ moreText }}</VUniText>
-        <VUniUniIcons
+        <UniIcons
           :color="moreColor"
           type="arrowright"
           size="14"/></VUniView>
-</VUniUniIcons></VUniUniIcons></VUniView>
+</UniIcons></UniIcons></VUniView>
 </template>
 
 <script>

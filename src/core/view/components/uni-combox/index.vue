@@ -14,7 +14,7 @@
       @input="onInput"
       @focus="onFocus"
       @blur="onBlur"/>
-    <VUniUniIcons
+    <UniIcons
       class="uni-combox__input-arrow"
       type="arrowdown"
       size="14"

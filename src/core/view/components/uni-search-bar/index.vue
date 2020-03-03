@@ -5,13 +5,13 @@
     @click="searchClick">
     <!-- #ifdef MP-ALIPAY -->
     <VUniView class="uni-searchbar__box-icon-search">
-      <VUniUniIcons
+      <UniIcons
         color="#999999"
         size="18"
         type="search"/></VUniView>
     <!-- #endif -->
     <!-- #ifndef MP-ALIPAY -->
-    <VUniUniIcons
+    <UniIcons
       color="#999999"
       class="uni-searchbar__box-icon-search"
       size="18"
@@ -34,12 +34,12 @@
         v-if="show && (clearButton==='always'||clearButton==='auto'&&searchVal!=='')"
         class="uni-searchbar__box-icon-clear"
         @click="clear">
-        <VUniUniIcons
+        <UniIcons
           color="#999999"
           class=""
           size="24"
           type="clear"/></VUniView>
-  </VUniUniIcons></VUniView>
+  </UniIcons></VUniView>
   <VUniText
     v-if="cancelButton ==='always' || show && cancelButton ==='auto'"
     class="uni-searchbar__cancel"

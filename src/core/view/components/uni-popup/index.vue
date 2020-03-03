@@ -2,13 +2,13 @@
   v-if="showPopup"
   class="uni-popup"
   @touchmove.stop.prevent="clear">
-  <VUniUniTransition
+  <UniTransition
     :mode-class="['fade']"
     :styles="maskClass"
     :duration="duration"
     :show="showTrans"
     @click="onTap">
-    <VUniUniTransition
+    <UniTransition
       :mode-class="ani"
       :styles="transClass"
       :duration="duration"
@@ -18,8 +18,8 @@
         class="uni-popup__wrapper-box"
         @click.stop="clear">
       <VUniSlot/></VUniView>
-    </VUniUniTransition>
-</VUniUniTransition></VUniView>
+    </UniTransition>
+</UniTransition></VUniView>
 </template>
 
 <script>

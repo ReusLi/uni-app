@@ -18,7 +18,7 @@
       <VUniView
         v-else-if="showExtraIcon"
         class="uni-list-item__icon">
-        <VUniUniIcons
+        <UniIcons
           :color="extraIcon.color"
           :size="extraIcon.size"
           :type="extraIcon.type"
@@ -36,7 +36,7 @@
         <VUniText
           v-if="rightText"
           class="uni-list-item__extra-text">{{ rightText }}</VUniText>
-        <VUniUniBadge
+        <UniBadge
           v-if="showBadge"
           :type="badgeType"
           :text="badgeText">
@@ -45,12 +45,12 @@
             :disabled="disabled"
             :checked="switchChecked"
             @change="onSwitchChange">
-            <VUniUniIcons
+            <UniIcons
               v-if="showArrow"
               :size="20"
               class="uni-icon-wrapper"
               color="#bbb"
-              type="arrowright"/></VUniSwitch></VUniUniBadge></VUniView>
+              type="arrowright"/></VUniSwitch></UniBadge></VUniView>
     </VUniView>
   </VUniView>
   <!-- #ifdef APP-NVUE -->

@@ -77,7 +77,7 @@
           v-for="(weeks,weeksIndex) in item"
           :key="weeksIndex"
           class="uni-calendar__weeks-item">
-          <VUniUniCalendarItem
+          <UniCalendarItem
             :weeks="weeks"
             :calendar="calendar"
             :selected="selected"

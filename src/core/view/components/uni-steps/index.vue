@@ -24,7 +24,7 @@
         <VUniView
           v-if="index === active"
           :class="[direction==='column'?'uni-steps__column-check':'uni-steps__row-check']">
-          <VUniUniIcons
+          <UniIcons
             :color="activeColor"
             type="checkbox-filled"
             size="14"/>

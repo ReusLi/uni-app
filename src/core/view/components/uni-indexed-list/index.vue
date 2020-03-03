@@ -22,7 +22,7 @@
           :key="idx"
           :id="'uni-indexed-list-' + idx">
           <!-- #endif -->
-          <VUniUniIndexedListItem
+          <UniIndexedListItem
             :list="list"
             :loaded="loaded"
             :idx="idx"

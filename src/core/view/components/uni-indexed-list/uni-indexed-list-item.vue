@@ -23,7 +23,7 @@
           <VUniView
             v-if="showSelect"
             style="margin-right: 20rpx;">
-            <VUniUniIcons
+            <UniIcons
               :type="item.checked ? 'checkbox-filled' : 'circle'"
               :color="item.checked ? '#007aff' : '#aaa'"
               size="24"/></VUniView>

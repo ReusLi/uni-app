@@ -13,20 +13,20 @@
     <VUniView
       :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showAnimation === true }"
       class="uni-collapse-cell__title-arrow">
-      <VUniUniIcons
+      <UniIcons
         color="#bbb"
         size="20"
         type="arrowdown"/></VUniView>
     <!-- #endif -->
     <!-- #ifndef MP-ALIPAY -->
-    <VUniUniIcons
+    <UniIcons
       :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showAnimation === true }"
       class="uni-collapse-cell__title-arrow"
       color="#bbb"
       size="20"
       type="arrowdown">
       <!-- #endif -->
-  </VUniUniIcons></VUniView>
+  </UniIcons></VUniView>
   <VUniView
     :class="{'uni-collapse-cell__content--hide':!isOpen}"
     class="uni-collapse-cell__content">

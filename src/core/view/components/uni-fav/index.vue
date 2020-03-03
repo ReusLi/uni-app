@@ -7,14 +7,14 @@
   <VUniView
     v-if="!checked && (star === true || star === 'true')"
     class="uni-fav-star">
-    <VUniUniIcons
+    <UniIcons
       :color="fgColor"
       :style="{color: checked ? fgColorChecked : fgColor}"
       size="14"
       type="star-filled"/></VUniView>
   <!-- #endif -->
   <!-- #ifndef MP-ALIPAY -->
-  <VUniUniIcons
+  <UniIcons
     v-if="!checked && (star === true || star === 'true')"
     :color="fgColor"
     :style="{color: checked ? fgColorChecked : fgColor}"
@@ -25,7 +25,7 @@
     <VUniText
       :style="{color: checked ? fgColorChecked : fgColor}"
       class="uni-fav-text">{{ checked ? contentText.contentFav : contentText.contentDefault }}</VUniText>
-</VUniUniIcons></VUniView>
+</UniIcons></VUniView>
 </template>
 
 <script>

@@ -1,35 +1,18 @@
-<template><VUniView class="uni-rate">
-  <VUniView
-    v-for="(star, index) in stars"
-    :key="index"
-    :style="{ marginLeft: margin + 'px' }"
-    class="uni-rate__icon"
-    @click="_onClick(index)">
-    <VUniUniIcons
-      :color="color"
-      :size="size"
-      :type="isFill ? 'star-filled' : 'star'">
-      <!-- #ifdef APP-NVUE -->
-      <VUniView
-        :style="{ width: star.activeWitch.replace('%','')*size/100+'px'}"
-        class="uni-rate__icon-on">
-        <VUniUniIcons
-          :color="activeColor"
-          :size="size"
-          style="text-align: left;"
-          type="star-filled"/></VUniView>
-      <!-- #endif -->
-      <!-- #ifndef APP-NVUE -->
-      <VUniView
-        :style="{ width: star.activeWitch,top:-size/2+'px' }"
-        class="uni-rate__icon-on">
-        <VUniUniIcons
-          :color="activeColor"
-          :size="size"
-          type="star-filled"/></VUniView>
-          <!-- #endif -->
-  </VUniUniIcons></VUniView>
-</VUniView>
+<template>
+  <VUniView class="uni-rate">
+    <VUniView
+      v-for="(star, index) in stars"
+      :key="index"
+      :style="{ marginLeft: margin + 'px' }"
+      class="uni-rate__icon"
+      @click="_onClick(index)"
+    >
+      <UniIcons :color="color" :size="size" :type="isFill ? 'star-filled' : 'star'" />
+      <VUniView :style="{ width: star.activeWitch,top:-size/2+'px' }" class="uni-rate__icon-on">
+				<UniIcons :color="activeColor" :size="size" type="star-filled" />
+			</VUniView>
+    </VUniView>
+  </VUniView>
 </template>
 
 <script>
@@ -147,27 +130,27 @@ export default {
 </script>
 
 <style>
-	.uni-rate {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		line-height: 0;
-		font-size: 0;
-		flex-direction: row;
-	}
+.uni-rate {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  line-height: 0;
+  font-size: 0;
+  flex-direction: row;
+}
 
-	.uni-rate__icon {
-		position: relative;
-		line-height: 0;
-		font-size: 0;
-	}
+.uni-rate__icon {
+  position: relative;
+  line-height: 0;
+  font-size: 0;
+}
 
-	.uni-rate__icon-on {
-		overflow: hidden;
-		position: absolute;
-		top: 0;
-		left: 0;
-		line-height: 1;
-		text-align: left;
-	}
+.uni-rate__icon-on {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1;
+  text-align: left;
+}
 </style>

@@ -4,9 +4,9 @@ const SCHEME_RE = /^([a-z-]+:)?\/\//i
 const DATA_RE = /^data:.*,.*/
 
 function addBase (filePath) {
-  if (__uniConfig.router.base) {
-    return __uniConfig.router.base + filePath
-  }
+  // if (__uniConfig.router.base) {
+  //   return __uniConfig.router.base + filePath
+  // }
   return filePath
 }
 

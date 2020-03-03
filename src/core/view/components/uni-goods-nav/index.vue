@@ -9,7 +9,7 @@
           class="flex uni-tab__cart-button-left uni-tab__shop-cart"
           @click="onClick(index,item)">
           <VUniView class="uni-tab__icon">
-            <VUniUniIcons
+            <UniIcons
               :type="item.icon"
               size="20"
               color="#646566"/>
