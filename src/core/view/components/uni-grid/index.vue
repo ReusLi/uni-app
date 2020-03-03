@@ -5,7 +5,7 @@
     :class="{ 'uni-grid--border': showBorder }"
     :style="{ 'border-left-style':'solid','border-left-color':borderColor, 'border-left-width':showBorder?'1px':0 }"
     class="uni-grid">
-  <VUniSlot/></VUniView>
+  <slot/></VUniView>
 </VUniView>
 </template>
 

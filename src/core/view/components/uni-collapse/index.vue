@@ -1,5 +1,5 @@
 <template><VUniView class="uni-collapse">
-<VUniSlot/></VUniView>
+<slot/></VUniView>
 </template>
 <script>
 /**

@@ -15,7 +15,7 @@
         v-if="subTitle"
         class="uni-section__content-sub">{{ subTitle }}</VUniText>
     </VUniView>
-  <VUniSlot/></VUniView>
+  <slot/></VUniView>
 </VUniView></template>
 
 <script>

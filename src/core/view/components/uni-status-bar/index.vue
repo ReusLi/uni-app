@@ -1,7 +1,7 @@
 <template><VUniView
   :style="{ height: statusBarHeight }"
   class="uni-status-bar">
-<VUniSlot/></VUniView>
+<slot/></VUniView>
 </template>
 
 <script>

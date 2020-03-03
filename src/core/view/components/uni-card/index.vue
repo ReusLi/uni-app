@@ -12,7 +12,7 @@
         mode="aspectFill"/></VUniView>
     <VUniView
       v-if="title"
-      class="uni-card__thumbnailimage-title"><VUnitext class="uni-card__thumbnailimage-title-text">{{ title }}</VUnitext></VUniView>
+      class="uni-card__thumbnailimage-title"><VUniText class="uni-card__thumbnailimage-title-text">{{ title }}</VUniText></VUniView>
   </VUniView>
   <VUniView
     v-if="mode === 'title'"
@@ -23,8 +23,8 @@
         class="uni-card__title-header-image"
         mode="scaleToFill"/></VUniView>
     <VUniView class="uni-card__title-content">
-      <VUnitext class="uni-card__title-content-title">{{ title }}</VUnitext>
-      <VUnitext class="uni-card__title-content-extra">{{ extra }}</VUnitext>
+      <VUniText class="uni-card__title-content-title">{{ title }}</VUniText>
+      <VUniText class="uni-card__title-content-extra">{{ extra }}</VUniText>
     </VUniView>
   </VUniView>
   <!-- 标题 -->
@@ -37,24 +37,24 @@
       <VUniImage
         :src="thumbnail"
         class="uni-card__header-extra-img"/></VUniView>
-    <VUnitext class="uni-card__header-title-text">{{ title }}</VUnitext>
-    <VUnitext
+    <VUniText class="uni-card__header-title-text">{{ title }}</VUniText>
+    <VUniText
       v-if="extra"
-      class="uni-card__header-extra-text">{{ extra }}</VUnitext>
+      class="uni-card__header-extra-text">{{ extra }}</VUniText>
   </VUniView>
   <!-- 内容 -->
   <VUniView class="uni-card__content uni-card__content--pd">
     <VUniView
       v-if="mode === 'style' && extra"
-      class=""><VUnitext class="uni-card__content-extra">{{ extra }}</VUnitext></VUniView>
-  <VUniSlot/></VUniView>
+      class=""><VUniText class="uni-card__content-extra">{{ extra }}</VUniText></VUniView>
+  <slot/></VUniView>
   <!-- 底部 -->
   <VUniView
     v-if="note"
     class="uni-card__footer">
-    <VUniSlot name="footer">
-      <VUnitext class="uni-card__footer-text">{{ note }}</VUnitext>
-    </VUniSlot>
+    <slot name="footer">
+      <VUniText class="uni-card__footer-text">{{ note }}</VUniText>
+    </slot>
   </VUniView>
 </VUniView>
 </template>

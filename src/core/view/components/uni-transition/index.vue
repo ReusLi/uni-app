@@ -5,7 +5,7 @@
   :style="'transform:' +transform+';'+stylesObject"
   class="uni-transition"
   @click="change">
-  <VUniSlot/>
+  <slot/>
 </VUniView>
 </template>
 

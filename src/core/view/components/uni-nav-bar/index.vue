@@ -23,7 +23,7 @@
             class="uni-navbar-btn-text uni-navbar__content_view">
             <VUniText :style="{ color: color, fontSize: '14px' }">{{ leftText }}</VUniText>
           </VUniView>
-        <VUniSlot name="left"/></VUniView>
+        <slot name="left"/></VUniView>
         <VUniView class="uni-navbar__header-container uni-navbar__content_view">
           <VUniView
             v-if="title.length"
@@ -33,7 +33,7 @@
               class="uni-nav-bar-text">{{ title }}</VUniText>
           </VUniView>
         <!-- 标题插槽 -->
-        <VUniSlot/></VUniView>
+        <slot/></VUniView>
         <VUniView
           :class="title.length ? 'uni-navbar__header-btns-right' : ''"
           class="uni-navbar__header-btns uni-navbar__content_view"
@@ -51,7 +51,7 @@
             class="uni-navbar-btn-text uni-navbar__content_view">
             <VUniText class="uni-nav-bar-right-text">{{ rightText }}</VUniText>
           </VUniView>
-        <VUniSlot name="right"/></VUniView>
+        <slot name="right"/></VUniView>
       </VUniView>
   </UniStatusBar></VUniView>
   <VUniView

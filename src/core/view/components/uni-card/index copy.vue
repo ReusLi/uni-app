@@ -25,13 +25,13 @@
     <!-- 内容 -->
     <VUniView class="uni-card__content uni-card__content--pd">
       <VUniView v-if="mode === 'style' && extra" class=""><VUniText class="uni-card__content-extra">{{ extra }}</VUniText></VUniView>
-      <VUniSlot>
-    </VUniSlot></VUniView>
+      <slot>
+    </slot></VUniView>
     <!-- 底部 -->
     <VUniView v-if="note" class="uni-card__footer">
-      <VUniSlot name="footer">
+      <slot name="footer">
         <VUniText class="uni-card__footer-text">{{ note }}</VUniText>
-      </VUniSlot>
+      </slot>
     </VUniView>
   </VUniView>
 </template>

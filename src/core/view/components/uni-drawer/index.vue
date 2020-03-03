@@ -9,7 +9,7 @@
     <VUniView
       :class="{'uni-drawer--right': rightMode,'uni-drawer--left': !rightMode, 'uni-drawer__content--visible': showDrawer}"
       class="uni-drawer__content">
-    <VUniSlot/></VUniView>
+    <slot/></VUniView>
   </VUniView>
 </VUniView></template>
 

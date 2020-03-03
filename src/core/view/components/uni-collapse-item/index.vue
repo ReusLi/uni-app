@@ -34,7 +34,7 @@
       :class="{ 'uni-collapse-cell--animation': showAnimation === true }"
       :style="{'transform':isOpen?'translateY(0)':'translateY(-50%)','-webkit-transform':isOpen?'translateY(0)':'translateY(-50%)'}"
       class="uni-collapse-cell__wrapper">
-    <VUniSlot/></VUniView>
+    <slot/></VUniView>
   </VUniView>
 </VUniView>
 </template>

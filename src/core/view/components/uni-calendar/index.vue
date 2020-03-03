@@ -113,6 +113,7 @@ import uniCalendarItem from './uni-calendar-item.vue'
 	 * @example <uni-calendar :insert="true":lunar="true" :start-date="'2019-3-2'":end-date="'2019-5-20'"@change="change" />
 	 */
 export default {
+  name: 'UniCalendar',
   components: {
     uniCalendarItem
   },

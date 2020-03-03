@@ -13,7 +13,7 @@
       @touchend="swipe.touchend"
       @change="change">
       <VUniView class="uni-swipe_box">
-      <VUniSlot/></VUniView>
+      <slot/></VUniView>
       <VUniView
         ref="selector-button-hock"
         class="uni-swipe_button-group selector-query-hock move-hock">
@@ -60,7 +60,7 @@
       ref="selector-content-hock"
       class="uni-swipe_move-box selector-query-hock">
       <VUniView class="uni-swipe_box">
-      <VUniSlot/></VUniView>
+      <slot/></VUniView>
     </VUniView>
   </VUniView>
   <!-- #endif -->
@@ -94,7 +94,7 @@
       @touchend="touchend">
       <VUniView class="uni-swipe_move-box">
         <VUniView class="uni-swipe_box">
-        <VUniSlot/></VUniView>
+        <slot/></VUniView>
       </VUniView>
     </VUniView>
   </VUniView>
@@ -120,7 +120,7 @@
           direction="horizontal"
           @change="onChange">
           <VUniView class="movable-view-box">
-            <VUniSlot/>
+            <slot/>
           </VUniView>
         </VUniMovableView>
       </VUniMovableArea>

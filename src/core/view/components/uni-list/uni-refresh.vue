@@ -1,7 +1,7 @@
 <template>
     <VUniView ref="uni-refresh" class="uni-refresh" v-show="isShow">
-        <VUniSlot>
-    </VUniSlot></VUniView>
+        <slot>
+    </slot></VUniView>
 </template>
 
 <script>

@@ -7,7 +7,7 @@
     :style="{ 'border-right-color': borderColor ,'border-bottom-color': borderColor ,'border-top-color': borderColor }"
     class="uni-grid-item__box"
     @click="_onClick">
-  <VUniSlot/></VUniView>
+  <slot/></VUniView>
 </VUniView>
 </template>
 

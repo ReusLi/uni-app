@@ -1,5 +1,5 @@
 <template><VUniView>
-  <VUniSlot/>
+  <slot/>
 </VUniView>
 </template>
 

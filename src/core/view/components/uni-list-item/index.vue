@@ -24,12 +24,12 @@
           :type="extraIcon.type"
           class="uni-icon-wrapper"/></VUniView>
       <VUniView class="uni-list-item__content">
-        <VUniSlot>
+        <slot>
           <VUniText class="uni-list-item__content-title">{{ title }}</VUniText>
           <VUniText
             v-if="note"
             class="uni-list-item__content-note">{{ note }}</VUniText>
-      </VUniSlot></VUniView>
+      </slot></VUniView>
       <VUniView
         v-if="showBadge || showArrow || showSwitch"
         class="uni-list-item__extra">

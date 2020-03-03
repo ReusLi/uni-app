@@ -5,7 +5,7 @@
     class="uni-list"
     loadmoreoffset="15"
     @loadmore="loadMore">
-  <VUniSlot/></VUniList>
+  <slot/></VUniList>
 </template>
 
 <script>

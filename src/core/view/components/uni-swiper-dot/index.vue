@@ -1,5 +1,5 @@
 <template><VUniView class="uni-swiper__warp">
-  <VUniSlot>
+  <slot>
     <VUniView
       v-if="mode === 'default'"
       key="default"
@@ -56,7 +56,7 @@
               class="uni-swiper__dots-item uni-swiper__dots-indexes"><VUniText class="uni-swiper__dots-indexes-text">{{ index+1 }}</VUniText></VUniView>
           </VUniView>
         </VUniView>
-</VUniView></VUniView></VUniSlot></VUniView></template>
+</VUniView></VUniView></slot></VUniView></template>
 
 <script>
 

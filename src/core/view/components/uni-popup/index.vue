@@ -17,7 +17,7 @@
       <VUniView
         class="uni-popup__wrapper-box"
         @click.stop="clear">
-      <VUniSlot/></VUniView>
+      <slot/></VUniView>
     </UniTransition>
 </UniTransition></VUniView>
 </template>
