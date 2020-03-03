@@ -115,7 +115,7 @@ import uniCalendarItem from './uni-calendar-item.vue'
 export default {
   name: 'UniCalendar',
   components: {
-    uniCalendarItem
+    'UniCalendarItem': uniCalendarItem
   },
   props: {
     date: {
@@ -169,6 +169,7 @@ export default {
     }
   },
   created () {
+    console.log(uniCalendarItem)
     // 获取日历方法实例
     this.cale = new Calendar({
       date: this.date,
