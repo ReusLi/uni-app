@@ -31,7 +31,6 @@ module.exports = {
     config.module
       .rule('eslint')
       .include
-      .add(resolve('src'))
       .add(resolve('lib/' + process.env.UNI_PLATFORM))
       .end()
       .use('eslint-loader')
