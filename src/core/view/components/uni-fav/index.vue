@@ -1,31 +1,24 @@
-<template><VUniView
-  :class="[circle === true || circle === 'true' ? 'uni-fav--circle' : '']"
-  :style="[{ backgroundColor: checked ? bgColorChecked : bgColor }]"
-  class="uni-fav"
-  @click="onClick">
-  <!-- #ifdef MP-ALIPAY -->
+<template>
   <VUniView
-    v-if="!checked && (star === true || star === 'true')"
-    class="uni-fav-star">
+    :class="[circle === true || circle === 'true' ? 'uni-fav--circle' : '']"
+    :style="[{ backgroundColor: checked ? bgColorChecked : bgColor }]"
+    class="uni-fav"
+    @click="onClick"
+  >
     <UniIcons
+      v-if="!checked && (star === true || star === 'true')"
       :color="fgColor"
       :style="{color: checked ? fgColorChecked : fgColor}"
+      class="uni-fav-star"
       size="14"
-      type="star-filled"/></VUniView>
-  <!-- #endif -->
-  <!-- #ifndef MP-ALIPAY -->
-  <UniIcons
-    v-if="!checked && (star === true || star === 'true')"
-    :color="fgColor"
-    :style="{color: checked ? fgColorChecked : fgColor}"
-    class="uni-fav-star"
-    size="14"
-    type="star-filled">
-    <!-- #endif -->
-    <VUniText
-      :style="{color: checked ? fgColorChecked : fgColor}"
-      class="uni-fav-text">{{ checked ? contentText.contentFav : contentText.contentDefault }}</VUniText>
-</UniIcons></VUniView>
+      type="star-filled"
+    />
+      <!-- #endif -->
+      <VUniText
+        :style="{color: checked ? fgColorChecked : fgColor}"
+        class="uni-fav-text"
+      >{{ checked ? contentText.contentFav : contentText.contentDefault }}</VUniText>
+  </VUniView>
 </template>
 
 <script>
@@ -110,44 +103,43 @@ export default {
 </script>
 
 <style>
+.uni-fav {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 3px;
+}
 
-	.uni-fav {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		width: 60px;
-		height: 25px;
-		line-height: 25px;
-		text-align: center;
-		border-radius: 3px;
-	}
+.uni-fav--circle {
+  border-radius: 30px;
+}
 
-	.uni-fav--circle {
-		border-radius: 30px;
-	}
+.uni-fav-star {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  height: 25px;
+  line-height: 24px;
+  margin-right: 3px;
+  align-items: center;
+  justify-content: center;
+}
 
-	.uni-fav-star {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		height: 25px;
-		line-height: 24px;
-		margin-right: 3px;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.uni-fav-text {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		height: 25px;
-		line-height: 25px;
-		align-items: center;
-		justify-content: center;
-		font-size: 28rpx;
-	}
+.uni-fav-text {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  height: 25px;
+  line-height: 25px;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
 </style>

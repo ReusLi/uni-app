@@ -1,60 +1,52 @@
-<template><!-- #ifdef APP-NVUE --><VUniCell>
-  <!-- #endif -->
-  <VUniView
-    :class="disabled ? 'uni-list-item--disabled' : ''"
-    :hover-class="disabled || showSwitch ? '' : 'uni-list-item--hover'"
-    class="uni-list-item"
-    @click="onClick">
+<template>
+  <!-- #ifdef APP-NVUE -->
+  <VUniCell>
+    <!-- #endif -->
     <VUniView
-      :class="{'uni-list-item--first':isFirstChild}"
-      class="uni-list-item__container">
-      <VUniView
-        v-if="thumb"
-        class="uni-list-item__icon">
-        <VUniImg
-          :src="thumb"
-          class="uni-list-item__icon-img"/>
-      </VUniView>
-      <VUniView
-        v-else-if="showExtraIcon"
-        class="uni-list-item__icon">
-        <UniIcons
-          :color="extraIcon.color"
-          :size="extraIcon.size"
-          :type="extraIcon.type"
-          class="uni-icon-wrapper"/></VUniView>
-      <VUniView class="uni-list-item__content">
-        <slot>
-          <VUniText class="uni-list-item__content-title">{{ title }}</VUniText>
-          <VUniText
-            v-if="note"
-            class="uni-list-item__content-note">{{ note }}</VUniText>
-      </slot></VUniView>
-      <VUniView
-        v-if="showBadge || showArrow || showSwitch"
-        class="uni-list-item__extra">
-        <VUniText
-          v-if="rightText"
-          class="uni-list-item__extra-text">{{ rightText }}</VUniText>
-        <UniBadge
-          v-if="showBadge"
-          :type="badgeType"
-          :text="badgeText">
+      :class="disabled ? 'uni-list-item--disabled' : ''"
+      :hover-class="disabled || showSwitch ? '' : 'uni-list-item--hover'"
+      class="uni-list-item"
+      @click="onClick"
+    >
+      <VUniView :class="{'uni-list-item--first':isFirstChild}" class="uni-list-item__container">
+        <VUniView v-if="thumb" class="uni-list-item__icon">
+          <VUniImg :src="thumb" class="uni-list-item__icon-img" />
+        </VUniView>
+        <VUniView v-else-if="showExtraIcon" class="uni-list-item__icon">
+          <UniIcons
+            :color="extraIcon.color"
+            :size="extraIcon.size"
+            :type="extraIcon.type"
+            class="uni-icon-wrapper"
+          />
+        </VUniView>
+        <VUniView class="uni-list-item__content">
+          <slot>
+            <VUniText class="uni-list-item__content-title">{{ title }}</VUniText>
+            <VUniText v-if="note" class="uni-list-item__content-note">{{ note }}</VUniText>
+          </slot>
+        </VUniView>
+        <VUniView v-if="showBadge || showArrow || showSwitch" class="uni-list-item__extra">
+          <VUniText v-if="rightText" class="uni-list-item__extra-text">{{ rightText }}</VUniText>
+          <UniBadge v-if="showBadge" :type="badgeType" :text="badgeText"></UniBadge>
           <VUniSwitch
             v-if="showSwitch"
             :disabled="disabled"
             :checked="switchChecked"
-            @change="onSwitchChange">
-            <UniIcons
-              v-if="showArrow"
-              :size="20"
-              class="uni-icon-wrapper"
-              color="#bbb"
-              type="arrowright"/></VUniSwitch></UniBadge></VUniView>
+            @change="onSwitchChange"
+          ></VUniSwitch>
+          <UniIcons
+            v-if="showArrow"
+            :size="20"
+            class="uni-icon-wrapper"
+            color="#bbb"
+            type="arrowright"
+          />
+        </VUniView>
+      </VUniView>
     </VUniView>
-  </VUniView>
-  <!-- #ifdef APP-NVUE -->
-</VUniCell>
+    <!-- #ifdef APP-NVUE -->
+  </VUniCell>
   <!-- #endif -->
 </template>
 
@@ -183,107 +175,106 @@ export default {
 </script>
 
 <style>
-	.uni-list-item {
-		font-size: 32rpx;
-		position: relative;
-		flex-direction: column;
-		justify-content: space-between;
-		padding-left: 30rpx;
-	}
+.uni-list-item {
+  font-size: 32rpx;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 30rpx;
+}
 
-	.uni-list-item--disabled {
-		opacity: 0.3;
-	}
+.uni-list-item--disabled {
+  opacity: 0.3;
+}
 
-	.uni-list-item--hover {
-		background-color: #f1f1f1;
-	}
+.uni-list-item--hover {
+  background-color: #f1f1f1;
+}
 
-	.uni-list-item__container {
-		position: relative;
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		padding: 30rpx;
-		padding-left: 0;
-		flex: 1;
-		position: relative;
-		justify-content: space-between;
-		align-items: center;
-		/* #ifdef APP-PLUS */
-		border-top-color: #c8c7cc;
-		border-top-style: solid;
-		border-top-width: 0.5px;
-		/* #endif */
-	}
-	.uni-list-item--first {
-		border-top-width: 0px;
-	}
-	/* #ifndef APP-NVUE */
-	.uni-list-item__container:after {
-		position: absolute;
-		top: 0;
-		right: 0;
-		left: 0;
-		height: 1px;
-		content: '';
-		-webkit-transform: scaleY(.5);
-		transform: scaleY(.5);
-		background-color: #c8c7cc;
-	}
-	.uni-list-item--first:after {
-		height: 0px;
-	}
-	/* #endif */
+.uni-list-item__container {
+  position: relative;
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex-direction: row;
+  padding: 30rpx;
+  padding-left: 0;
+  flex: 1;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  /* #ifdef APP-PLUS */
+  border-top-color: #c8c7cc;
+  border-top-style: solid;
+  border-top-width: 0.5px;
+  /* #endif */
+}
+.uni-list-item--first {
+  border-top-width: 0px;
+}
+/* #ifndef APP-NVUE */
+.uni-list-item__container:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #c8c7cc;
+}
+.uni-list-item--first:after {
+  height: 0px;
+}
+/* #endif */
 
-	.uni-list-item__content {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex: 1;
-		overflow: hidden;
-		flex-direction: column;
-		color: #3b4144;
+.uni-list-item__content {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex: 1;
+  overflow: hidden;
+  flex-direction: column;
+  color: #3b4144;
+}
 
-	}
+.uni-list-item__content-title {
+  font-size: 28rpx;
+  color: #3b4144;
+  overflow: hidden;
+}
 
-	.uni-list-item__content-title {
-		font-size: 28rpx;
-		color: #3b4144;
-		overflow: hidden;
-	}
+.uni-list-item__content-note {
+  margin-top: 6rpx;
+  color: #999;
+  font-size: 24rpx;
+  overflow: hidden;
+}
 
-	.uni-list-item__content-note {
-		margin-top: 6rpx;
-		color: #999;
-		font-size: 24rpx;
-		overflow: hidden;
-	}
+.uni-list-item__extra {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
 
-	.uni-list-item__extra {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		justify-content: flex-end;
-		align-items: center;
-	}
+.uni-list-item__icon {
+  margin-right: 18rpx;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
-	.uni-list-item__icon {
-		margin-right: 18rpx;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-	}
+.uni-list-item__icon-img {
+  height: 52rpx;
+  width: 52rpx;
+}
 
-	.uni-list-item__icon-img {
-		height: 52rpx;
-		width: 52rpx;
-	}
-
-	.uni-list-item__extra-text {
-		color: #999;
-		font-size: 24rpx;
-	}
+.uni-list-item__extra-text {
+  color: #999;
+  font-size: 24rpx;
+}
 </style>
