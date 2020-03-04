@@ -1,66 +1,68 @@
-<template><VUniView class="uni-navbar">
-  <VUniView
-    :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }"
-    :style="{ 'background-color': backgroundColor }"
-    class="uni-navbar__content">
-    <UniStatusBar v-if="statusBar">
-      <VUniView
-        :style="{ color: color,backgroundColor: backgroundColor }"
-        class="uni-navbar__header uni-navbar__content_view">
+<template>
+  <VUniView class="uni-navbar">
+    <VUniView
+      :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }"
+      :style="{ 'background-color': backgroundColor }"
+      class="uni-navbar__content"
+    >
+      <UniStatusBar v-if="statusBar">
         <VUniView
-          class="uni-navbar__header-btns uni-navbar__header-btns-left uni-navbar__content_view"
-          @tap="onClickLeft">
+          :style="{ color: color,backgroundColor: backgroundColor }"
+          class="uni-navbar__header uni-navbar__content_view"
+        >
           <VUniView
-            v-if="leftIcon.length"
-            class="uni-navbar__content_view">
-            <UniIcons
-              :color="color"
-              :type="leftIcon"
-              size="24"/></VUniView>
-          <VUniView
-            v-if="leftText.length"
-            :class="{ 'uni-navbar-btn-icon-left': !leftIcon.length }"
-            class="uni-navbar-btn-text uni-navbar__content_view">
-            <VUniText :style="{ color: color, fontSize: '14px' }">{{ leftText }}</VUniText>
+            class="uni-navbar__header-btns uni-navbar__header-btns-left uni-navbar__content_view"
+            @tap="onClickLeft"
+          >
+            <VUniView v-if="leftIcon.length" class="uni-navbar__content_view">
+              <UniIcons :color="color" :type="leftIcon" size="24" />
+            </VUniView>
+            <VUniView
+              v-if="leftText.length"
+              :class="{ 'uni-navbar-btn-icon-left': !leftIcon.length }"
+              class="uni-navbar-btn-text uni-navbar__content_view"
+            >
+              <VUniText :style="{ color: color, fontSize: '14px' }">{{ leftText }}</VUniText>
+            </VUniView>
+            <slot name="left" />
           </VUniView>
-        <slot name="left"/></VUniView>
-        <VUniView class="uni-navbar__header-container uni-navbar__content_view">
-          <VUniView
-            v-if="title.length"
-            class="uni-navbar__header-container-inner uni-navbar__content_view">
-            <VUniText
-              :style="{color: color }"
-              class="uni-nav-bar-text">{{ title }}</VUniText>
+          <VUniView class="uni-navbar__header-container uni-navbar__content_view">
+            <VUniView
+              v-if="title.length"
+              class="uni-navbar__header-container-inner uni-navbar__content_view"
+            >
+              <VUniText :style="{color: color }" class="uni-nav-bar-text">{{ title }}</VUniText>
+            </VUniView>
+            <!-- 标题插槽 -->
+            <slot />
           </VUniView>
-        <!-- 标题插槽 -->
-        <slot/></VUniView>
-        <VUniView
-          :class="title.length ? 'uni-navbar__header-btns-right' : ''"
-          class="uni-navbar__header-btns uni-navbar__content_view"
-          @tap="onClickRight">
           <VUniView
-            v-if="rightIcon.length"
-            class="uni-navbar__content_view">
-            <UniIcons
-              :color="color"
-              :type="rightIcon"
-              size="24"/></VUniView>
-          <!-- 优先显示图标 -->
-          <VUniView
-            v-if="rightText.length && !rightIcon.length"
-            class="uni-navbar-btn-text uni-navbar__content_view">
-            <VUniText class="uni-nav-bar-right-text">{{ rightText }}</VUniText>
+            :class="title.length ? 'uni-navbar__header-btns-right' : ''"
+            class="uni-navbar__header-btns uni-navbar__content_view"
+            @tap="onClickRight"
+          >
+            <VUniView v-if="rightIcon.length" class="uni-navbar__content_view">
+              <UniIcons :color="color" :type="rightIcon" size="24" />
+            </VUniView>
+            <!-- 优先显示图标 -->
+            <VUniView
+              v-if="rightText.length && !rightIcon.length"
+              class="uni-navbar-btn-text uni-navbar__content_view"
+            >
+              <VUniText class="uni-nav-bar-right-text">{{ rightText }}</VUniText>
+            </VUniView>
+            <slot name="right" />
           </VUniView>
-        <slot name="right"/></VUniView>
-      </VUniView>
-  </UniStatusBar></VUniView>
-  <VUniView
-    v-if="fixed"
-    class="uni-navbar__placeholder">
-    <UniStatusBar v-if="statusBar">
-      <VUniView class="uni-navbar__placeholder-view"/>
-  </UniStatusBar></VUniView>
-</VUniView></template>
+        </VUniView>
+      </UniStatusBar>
+    </VUniView>
+    <VUniView v-if="fixed" class="uni-navbar__placeholder">
+      <UniStatusBar v-if="statusBar">
+        <VUniView class="uni-navbar__placeholder-view" />
+      </UniStatusBar>
+    </VUniView>
+  </VUniView>
+</template>
 
 <script>
 import uniStatusBar from '../uni-status-bar/index.vue'
@@ -86,8 +88,8 @@ import uniIcons from '../uni-icons/index.vue'
 export default {
   name: 'UniNavBar',
   components: {
-    uniStatusBar,
-    uniIcons
+    'UniStatusBar': uniStatusBar,
+    'UniIcons': uniIcons
   },
   props: {
     title: {
@@ -136,9 +138,9 @@ export default {
     }
   },
   mounted () {
-    if (uni.report && this.title !== '') {
-      uni.report('title', this.title)
-    }
+    // if (uni.report && this.title !== '') {
+    //   uni.report('title', this.title)
+    // }
   },
   methods: {
     onClickLeft () {
@@ -152,104 +154,98 @@ export default {
 </script>
 
 <style>
+.uni-nav-bar-text {
+  font-size: 32rpx;
+}
 
-	.uni-nav-bar-text {
-		/* #ifdef APP-PLUS */
-		font-size: 34rpx;
-		/* #endif */
-		/* #ifndef APP-PLUS */
-		font-size: 32rpx;
-		/* #endif */
-	}
+.uni-nav-bar-right-text {
+  font-size: 28rpx;
+}
 
-	.uni-nav-bar-right-text {
-		font-size: 28rpx;
-	}
+.uni-navbar__content {
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden;
+}
 
-	.uni-navbar__content {
-		position: relative;
-		background-color: #ffffff;
-		overflow: hidden;
-	}
+.uni-navbar__content_view {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  align-items: center;
+  flex-direction: row;
+}
 
-	.uni-navbar__content_view {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		align-items: center;
-		flex-direction: row;
-	}
+.uni-navbar__header {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex-direction: row;
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px;
+}
 
-	.uni-navbar__header {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		height: 44px;
-		line-height: 44px;
-		font-size: 16px;
-	}
+.uni-navbar__header-btns {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex-wrap: nowrap;
+  width: 120rpx;
+  padding: 0 6px;
+  justify-content: center;
+  align-items: center;
+}
 
-	.uni-navbar__header-btns {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-wrap: nowrap;
-		width: 120rpx;
-		padding: 0 6px;
-		justify-content: center;
-		align-items: center;
-	}
+.uni-navbar__header-btns-left {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  width: 150rpx;
+  justify-content: flex-start;
+}
 
-	.uni-navbar__header-btns-left {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		width: 150rpx;
-		justify-content: flex-start;
-	}
+.uni-navbar__header-btns-right {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  width: 150rpx;
+  padding-right: 30rpx;
+  justify-content: flex-end;
+}
 
-	.uni-navbar__header-btns-right {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		width: 150rpx;
-		padding-right: 30rpx;
-		justify-content: flex-end;
-	}
+.uni-navbar__header-container {
+  flex: 1;
+}
 
-	.uni-navbar__header-container {
-		flex: 1;
-	}
+.uni-navbar__header-container-inner {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
 
-	.uni-navbar__header-container-inner {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex: 1;
-		align-items: center;
-		justify-content: center;
-		font-size: 28rpx;
-	}
+.uni-navbar__placeholder-view {
+  height: 44px;
+}
 
-	.uni-navbar__placeholder-view {
-		height: 44px;
-	}
+.uni-navbar--fixed {
+  position: fixed;
+  z-index: 998;
+}
 
-	.uni-navbar--fixed {
-		position: fixed;
-		z-index: 998;
-	}
+.uni-navbar--shadow {
+  /* #ifndef APP-NVUE */
+  box-shadow: 0 1px 6px #ccc;
+  /* #endif */
+}
 
-	.uni-navbar--shadow {
-		/* #ifndef APP-NVUE */
-		box-shadow: 0 1px 6px #ccc;
-		/* #endif */
-	}
-
-	.uni-navbar--border {
-		border-bottom-width: 1rpx;
-		border-bottom-style: solid;
-		border-bottom-color: #c8c7cc;
-	}
+.uni-navbar--border {
+  border-bottom-width: 1rpx;
+  border-bottom-style: solid;
+  border-bottom-color: #c8c7cc;
+}
 </style>
