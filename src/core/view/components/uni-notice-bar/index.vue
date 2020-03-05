@@ -1,69 +1,59 @@
-<template><VUniView
-  v-if="show"
-  :style="{ backgroundColor: backgroundColor }"
-  class="uni-noticebar"
-  @click="onClick">
-  <!-- #ifdef MP-ALIPAY -->
+<template>
   <VUniView
-    v-if="showClose === true || showClose === 'true'"
-    class="uni-noticebar-close"
-    @click="close">
+    v-if="show"
+    :style="{ backgroundColor: backgroundColor }"
+    class="uni-noticebar"
+    @click="onClick"
+  >
+    <!-- #ifndef MP-ALIPAY -->
     <UniIcons
+      v-if="showClose === true || showClose === 'true'"
       :color="color"
+      class="uni-noticebar-close"
       type="closefill"
-      size="12"/></VUniView>
-  <VUniView
-    v-if="showIcon === true || showIcon === 'true'"
-    class="uni-noticebar-icon">
-    <UniIcons
-      :color="color"
-      type="sound"
-      size="14"/></VUniView>
-  <!-- #endif -->
-  <!-- #ifndef MP-ALIPAY -->
-  <UniIcons
-    v-if="showClose === true || showClose === 'true'"
-    :color="color"
-    class="uni-noticebar-close"
-    type="closefill"
-    size="12"
-    @click="close">
+      size="12"
+      @click="close"
+    />
     <UniIcons
       v-if="showIcon === true || showIcon === 'true'"
       :color="color"
       class="uni-noticebar-icon"
       type="sound"
-      size="14">
-      <!-- #endif -->
+      size="14"
+    />
+    <!-- #endif -->
+    <VUniView
+      ref="textBox"
+      :class="{'uni-noticebar__content-wrapper--scrollable':scrollable, 'uni-noticebar__content-wrapper--single':!scrollable && (single || moreText)}"
+      class="uni-noticebar__content-wrapper"
+    >
       <VUniView
-        ref="textBox"
-        :class="{'uni-noticebar__content-wrapper--scrollable':scrollable, 'uni-noticebar__content-wrapper--single':!scrollable && (single || moreText)}"
-        class="uni-noticebar__content-wrapper">
-        <VUniView
-          :id="elIdBox"
-          :class="{'uni-noticebar__content--scrollable':scrollable, 'uni-noticebar__content--single':!scrollable && (single || moreText)}"
-          class="uni-noticebar__content">
-          <VUniText
-            ref="animationEle"
-            :id="elId"
-            :class="{'uni-noticebar__content-text--scrollable':scrollable,'uni-noticebar__content-text--single':!scrollable && (single || moreText)}"
-            :style="{color:color, width:wrapWidth+'px', 'animationDuration': animationDuration, '-webkit-animationDuration': animationDuration ,animationPlayState: webviewHide?'paused':animationPlayState,'-webkit-animationPlayState':webviewHide?'paused':animationPlayState, animationDelay: animationDelay, '-webkit-animationDelay':animationDelay}"
-            class="uni-noticebar__content-text">{{ text }}</VUniText>
-        </VUniView>
-      </VUniView>
-      <VUniView
-        v-if="showGetMore === true || showGetMore === 'true'"
-        class="uni-noticebar__more"
-        @click="clickMore">
+        :id="elIdBox"
+        :class="{'uni-noticebar__content--scrollable':scrollable, 'uni-noticebar__content--single':!scrollable && (single || moreText)}"
+        class="uni-noticebar__content"
+      >
         <VUniText
-          v-if="moreText"
-          :style="{ color: moreColor }"
-          class="uni-noticebar__more-text">{{ moreText }}</VUniText>
-        <UniIcons
-          :color="moreColor"
-          type="arrowright"
-          size="14"/></VUniView>
-</UniIcons></UniIcons></VUniView>
+          ref="animationEle"
+          :id="elId"
+          :class="{'uni-noticebar__content-text--scrollable':scrollable,'uni-noticebar__content-text--single':!scrollable && (single || moreText)}"
+          :style="{color:color, width:wrapWidth+'px', 'animationDuration': animationDuration, '-webkit-animationDuration': animationDuration ,animationPlayState: webviewHide?'paused':animationPlayState,'-webkit-animationPlayState':webviewHide?'paused':animationPlayState, animationDelay: animationDelay, '-webkit-animationDelay':animationDelay}"
+          class="uni-noticebar__content-text"
+        >{{ text }}</VUniText>
+      </VUniView>
+    </VUniView>
+    <VUniView
+      v-if="showGetMore === true || showGetMore === 'true'"
+      class="uni-noticebar__more"
+      @click="clickMore"
+    >
+      <VUniText
+        v-if="moreText"
+        :style="{ color: moreColor }"
+        class="uni-noticebar__more-text"
+      >{{ moreText }}</VUniText>
+      <UniIcons :color="moreColor" type="arrowright" size="14" />
+    </VUniView>
+  </VUniView>
 </template>
 
 <script>
@@ -170,17 +160,6 @@ export default {
     }
   },
   mounted () {
-    // #ifdef APP-PLUS
-    var pages = getCurrentPages()
-    var page = pages[pages.length - 1]
-    var currentWebview = page.$getAppWebview()
-    currentWebview.addEventListener('hide', () => {
-      this.webviewHide = true
-    })
-    currentWebview.addEventListener('show', () => {
-      this.webviewHide = false
-    })
-    // #endif
     this.$nextTick(() => {
       this.initSize()
     })
@@ -190,13 +169,27 @@ export default {
       if (this.scrollable) {
         // #ifndef APP-NVUE
         let query = []
+        this.boxWidth = window.outerHeight
+        this.textWidth = window.outerHeight
+        this.animationDuration = `${this.textWidth / this.speed}s`
+        this.animationDelay = `-${this.boxWidth / this.speed}s`
+        setTimeout(() => {
+          this.animationPlayState = 'running'
+        }, 1000)
+        // #endif
+      }
+    },
+    initSize1 () {
+      if (this.scrollable) {
+        // #ifndef APP-NVUE
+        let query = []
         let boxWidth = 0
         let textWidth = 0
         let textQuery = new Promise((resolve, reject) => {
           uni.createSelectorQuery()
-          // #ifndef MP-ALIPAY
+            // #ifndef MP-ALIPAY
             .in(this)
-          // #endif
+            // #endif
             .select(`#${this.elId}`)
             .boundingClientRect()
             .exec(ret => {
@@ -206,9 +199,9 @@ export default {
         })
         let boxQuery = new Promise((resolve, reject) => {
           uni.createSelectorQuery()
-          // #ifndef MP-ALIPAY
+            // #ifndef MP-ALIPAY
             .in(this)
-          // #endif
+            // #endif
             .select(`#${this.elIdBox}`)
             .boundingClientRect()
             .exec(ret => {
@@ -245,126 +238,125 @@ export default {
 </script>
 
 <style>
+.uni-noticebar {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  /* #endif */
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+}
 
-	.uni-noticebar {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		width: 100%;
-		box-sizing: border-box;
-		/* #endif */
-		flex-direction: row;
-		align-items: center;
-		padding: 6px 12px;
-		margin-bottom: 10px;
-	}
+.uni-noticebar-close {
+  margin-right: 5px;
+}
 
-	.uni-noticebar-close {
-		margin-right: 5px;
-	}
+.uni-noticebar-icon {
+  margin-right: 5px;
+}
 
-	.uni-noticebar-icon {
-		margin-right: 5px;
-	}
+.uni-noticebar__content-wrapper {
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}
 
-	.uni-noticebar__content-wrapper {
-		flex: 1;
-		flex-direction: column;
-		overflow: hidden;
-	}
+.uni-noticebar__content-wrapper--single {
+  /* #ifndef APP-NVUE */
+  line-height: 18px;
+  /* #endif */
+}
 
-	.uni-noticebar__content-wrapper--single {
-		/* #ifndef APP-NVUE */
-		line-height: 18px;
-		/* #endif */
-	}
+.uni-noticebar__content-wrapper--single,
+.uni-noticebar__content-wrapper--scrollable {
+  flex-direction: row;
+}
 
-	.uni-noticebar__content-wrapper--single,
-	.uni-noticebar__content-wrapper--scrollable {
-		flex-direction: row;
-	}
+/* #ifndef APP-NVUE */
+.uni-noticebar__content-wrapper--scrollable {
+  position: relative;
+  height: 18px;
+}
+/* #endif */
 
-	/* #ifndef APP-NVUE */
-	.uni-noticebar__content-wrapper--scrollable {
-		position: relative;
-		height: 18px;
-	}
-	/* #endif */
+.uni-noticebar__content--scrollable {
+  /* #ifdef APP-NVUE */
+  flex: 0;
+  /* #endif */
+  /* #ifndef APP-NVUE */
+  flex: 1;
+  display: block;
+  overflow: hidden;
+  /* #endif */
+}
 
-	.uni-noticebar__content--scrollable {
-		/* #ifdef APP-NVUE */
-		flex: 0;
-		/* #endif */
-		/* #ifndef APP-NVUE */
-		flex: 1;
-		display: block;
-		overflow: hidden;
-		/* #endif */
-	}
+.uni-noticebar__content--single {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  flex: none;
+  width: 100%;
+  justify-content: center;
+  /* #endif */
+}
 
-	.uni-noticebar__content--single {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		flex: none;
-		width: 100%;
-		justify-content: center;
-		/* #endif */
-	}
+.uni-noticebar__content-text {
+  font-size: 14px;
+  line-height: 18px;
+  /* #ifndef APP-NVUE */
+  word-break: break-all;
+  /* #endif */
+}
 
-	.uni-noticebar__content-text {
-		font-size: 14px;
-		line-height: 18px;
-		/* #ifndef APP-NVUE */
-		word-break: break-all;
-		/* #endif */
-	}
+.uni-noticebar__content-text--single {
+  /* #ifdef APP-NVUE */
+  lines: 1;
+  /* #endif */
+  /* #ifndef APP-NVUE */
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  /* #endif */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-	.uni-noticebar__content-text--single {
-		/* #ifdef APP-NVUE */
-		lines: 1;
-		/* #endif */
-		/* #ifndef APP-NVUE */
-		display: block;
-		width: 100%;
-		white-space: nowrap;
-		/* #endif */
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
+.uni-noticebar__content-text--scrollable {
+  /* #ifdef APP-NVUE */
+  lines: 1;
+  padding-left: 750rpx;
+  /* #endif */
+  /* #ifndef APP-NVUE */
+  position: absolute;
+  display: block;
+  height: 18px;
+  line-height: 18px;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: notice 10s 0s linear infinite both;
+  animation-play-state: paused;
+  /* #endif */
+}
 
-	.uni-noticebar__content-text--scrollable {
-		/* #ifdef APP-NVUE */
-		lines: 1;
-		padding-left: 750rpx;
-		/* #endif */
-		/* #ifndef APP-NVUE */
-		position: absolute;
-		display: block;
-		height: 18px;
-		line-height: 18px;
-		white-space: nowrap;
-		padding-left: 100%;
-		animation: notice 10s 0s linear infinite both;
-		animation-play-state: paused;
-		/* #endif */
-	}
+.uni-noticebar__more {
+  /* #ifndef APP-NVUE */
+  display: inline-flex;
+  /* #endif */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-left: 5px;
+}
 
-	.uni-noticebar__more {
-		/* #ifndef APP-NVUE */
-		display: inline-flex;
-		/* #endif */
-		flex-direction: row;
-		flex-wrap: nowrap;
-		align-items: center;
-		padding-left: 5px;
-	}
+.uni-noticebar__more-text {
+  font-size: 14px;
+}
 
-	.uni-noticebar__more-text {
-		font-size: 14px;
-	}
-
-	@keyframes notice {
-		100% {
-			transform: translate3d(-100%, 0, 0);
-		}
-	}
+@keyframes notice {
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
 </style>
