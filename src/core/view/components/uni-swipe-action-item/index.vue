@@ -6,7 +6,6 @@
       <VUniView
         :data-disabled="disabled"
         :data-position="pos"
-        :change:prop="swipe.sizeReady"
         :prop="pos"
         class="uni-swipe_move-box selector-query-hock move-hock"
         @touchstart="swipe.touchstart"
@@ -37,133 +36,6 @@
               class="uni-swipe_button-text"
             >{{ item.text }}</VUniText>
           </VUniView>
-        </VUniView>
-      </VUniView>
-    </VUniView>
-    <!-- #endif -->
-
-    <!--  app nvue端 使用 bindingx -->
-    <!-- #ifdef APP-NVUE -->
-    <VUniView
-      ref="selector-box-hock"
-      class="uni-swipe_content"
-      @horizontalpan="touchstart"
-      @touchend="touchend"
-    >
-      <VUniView
-        ref="selector-button-hock"
-        :style="{width:right+'px'}"
-        class="uni-swipe_button-group selector-query-hock move-hock"
-      >
-        <VUniView
-          v-for="(item,index) in options"
-          ref="button-hock"
-          :key="index"
-          :style="{
-        backgroundColor: item.style && item.style.backgroundColor ? item.style.backgroundColor : '#C7C6CD',left: right+'px'}"
-          class="uni-swipe_button"
-          @click.stop="onClick(index,item)"
-        >
-          <VUniText
-            :style="{color: item.style && item.style.color ? item.style.color : '#FFFFFF',fontSize: item.style && item.style.fontSize ? item.style.fontSize : '16px'}"
-            class="uni-swipe_button-text"
-          >{{ item.text }}</VUniText>
-        </VUniView>
-      </VUniView>
-      <VUniView ref="selector-content-hock" class="uni-swipe_move-box selector-query-hock">
-        <VUniView class="uni-swipe_box">
-          <slot />
-        </VUniView>
-      </VUniView>
-    </VUniView>
-    <!-- #endif -->
-
-    <!-- 在非 app 端、非微信小程序、支付宝小程序、h5端使用 js -->
-    <!-- #ifndef APP-PLUS || MP-WEIXIN || MP-ALIPAY || H5 -->
-    <VUniView class="uni-swipe_content">
-      <VUniView
-        ref="selector-button-hock"
-        class="uni-swipe_button-group selector-query-hock move-hock"
-      >
-        <VUniView
-          v-for="(item,index) in options"
-          :data-button="btn"
-          :key="index"
-          :style="{
-          backgroundColor: item.style && item.style.backgroundColor ? item.style.backgroundColor : '#C7C6CD',
-          fontSize: item.style && item.style.fontSize ? item.style.fontSize : '16px'
-        }"
-          class="uni-swipe_button button-hock"
-          @click.stop="onClick(index,item)"
-        >
-          <VUniText
-            :style="{color: item.style && item.style.color ? item.style.color : '#FFFFFF',}"
-            class="uni-swipe_button-text"
-          >{{ item.text }}</VUniText>
-        </VUniView>
-      </VUniView>
-      <VUniView
-        ref="selector-content-hock"
-        :class="{'ani':uniShow}"
-        :style="{transform:moveLeft}"
-        class="selector-query-hock"
-        @touchstart="touchstart"
-        @touchmove="touchmove"
-        @touchend="touchend"
-      >
-        <VUniView class="uni-swipe_move-box">
-          <VUniView class="uni-swipe_box">
-            <slot />
-          </VUniView>
-        </VUniView>
-      </VUniView>
-    </VUniView>
-    <!-- #endif -->
-    <!-- #ifdef MP-ALIPAY -->
-    <VUniView
-      class="uni-swipe-box"
-      @touchstart="touchstart"
-      @touchmove="touchmove"
-      @touchend="touchend"
-    >
-      <VUniView class="viewWidth-hook">
-        <VUniMovableArea
-          v-if="viewWidth !== 0"
-          :style="{width:(viewWidth-buttonWidth)+'px'}"
-          class="movable-area"
-        >
-          <VUniMovableView
-            :animation="!transition"
-            :style="{width:viewWidth+'px'}"
-            :class="[transition?'transition':'']"
-            :x="x"
-            :disabled="disabledView"
-            class="movable-view"
-            direction="horizontal"
-            @change="onChange"
-          >
-            <VUniView class="movable-view-box">
-              <slot />
-            </VUniView>
-          </VUniMovableView>
-        </VUniMovableArea>
-      </VUniView>
-      <VUniView ref="selector-button-hock" class="uni-swipe_button-group viewWidth-hook">
-        <VUniView
-          v-for="(item,index) in options"
-          :data-button="btn"
-          :key="index"
-          :style="{
-          backgroundColor: item.style && item.style.backgroundColor ? item.style.backgroundColor : '#C7C6CD',
-          fontSize: item.style && item.style.fontSize ? item.style.fontSize : '16px'
-        }"
-          class="uni-swipe_button button-hock"
-          @click.stop="onClick(index,item)"
-        >
-          <VUniText
-            :style="{color: item.style && item.style.color ? item.style.color : '#FFFFFF',}"
-            class="uni-swipe_button-text"
-          >{{ item.text }}</VUniText>
         </VUniView>
       </VUniView>
     </VUniView>
@@ -201,6 +73,7 @@ import mpalipay from './mpalipay'
  */
 
 export default {
+  name: "UniSwipeActionItem",
   // #ifdef APP-VUE|| MP-WEIXIN||H5
   mixins: [mpwxs],
   // #endif
