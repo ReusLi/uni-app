@@ -1,21 +1,12 @@
-<template><VUniView class="uni-searchbar">
-  <VUniView
-    :style="{borderRadius:radius+'px',backgroundColor: bgColor}"
-    class="uni-searchbar__box"
-    @click="searchClick">
-    <!-- #ifdef MP-ALIPAY -->
-    <VUniView class="uni-searchbar__box-icon-search">
-      <UniIcons
-        color="#999999"
-        size="18"
-        type="search"/></VUniView>
-    <!-- #endif -->
-    <!-- #ifndef MP-ALIPAY -->
-    <UniIcons
-      color="#999999"
-      class="uni-searchbar__box-icon-search"
-      size="18"
-      type="search">
+<template>
+  <VUniView class="uni-searchbar">
+    <VUniView
+      :style="{borderRadius:radius+'px',backgroundColor: bgColor}"
+      class="uni-searchbar__box"
+      @click="searchClick"
+    >
+      <!-- #ifndef MP-ALIPAY -->
+      <UniIcons color="#999999" class="uni-searchbar__box-icon-search" size="18" type="search" />
       <!-- #endif -->
       <VUniInput
         v-if="show"
@@ -26,25 +17,23 @@
         class="uni-searchbar__box-search-input"
         confirm-type="search"
         type="text"
-        @confirm="confirm"/>
-      <VUniText
-        v-else=""
-        class="uni-searchbar__text-placeholder">{{ placeholder }}</VUniText>
+        @confirm="confirm"
+      />
+      <VUniText v-else class="uni-searchbar__text-placeholder">{{ placeholder }}</VUniText>
       <VUniView
         v-if="show && (clearButton==='always'||clearButton==='auto'&&searchVal!=='')"
         class="uni-searchbar__box-icon-clear"
-        @click="clear">
-        <UniIcons
-          color="#999999"
-          class=""
-          size="24"
-          type="clear"/></VUniView>
-  </UniIcons></VUniView>
-  <VUniText
-    v-if="cancelButton ==='always' || show && cancelButton ==='auto'"
-    class="uni-searchbar__cancel"
-    @click="cancel">{{ cancelText }}</VUniText>
-</VUniView>
+        @click="clear"
+      >
+        <UniIcons color="#999999" class size="24" type="clear" />
+      </VUniView>
+    </VUniView>
+    <VUniText
+      v-if="cancelButton ==='always' || show && cancelButton ==='auto'"
+      class="uni-searchbar__cancel"
+      @click="cancel"
+    >{{ cancelText }}</VUniText>
+  </VUniView>
 </template>
 
 <script>
@@ -165,69 +154,67 @@ export default {
 </script>
 
 <style>
-	$uni-searchbar-height: 36px;
+.uni-searchbar {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex-direction: row;
+  position: relative;
+  padding: 16rpx;
+  background-color: #ffffff;
+}
 
-	.uni-searchbar {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		position: relative;
-		padding: 16rpx;
-		background-color: #ffffff;
-	}
+.uni-searchbar__box {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  box-sizing: border-box;
+  /* #endif */
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  height: 36px;
+  padding: 5px 8px 5px 0px;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: #c8c7cc;
+}
 
-	.uni-searchbar__box {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		box-sizing: border-box;
-		/* #endif */
-		overflow: hidden;
-		position: relative;
-		flex: 1;
-		justify-content: center;
-		flex-direction: row;
-		align-items: center;
-		height: $uni-searchbar-height;
-		padding: 5px 8px 5px 0px;
-		border-width: 0.5px;
-		border-style: solid;
-		border-color: #c8c7cc;
-	}
+.uni-searchbar__box-icon-search {
+  /* #ifndef APP-NVUE */
+  display: flex;
+  /* #endif */
+  flex-direction: row;
+  width: 32px;
+  justify-content: center;
+  align-items: center;
+  color: #808080;
+}
 
-	.uni-searchbar__box-icon-search {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		width: 32px;
-		justify-content: center;
-		align-items: center;
-		color: #808080;
-	}
+.uni-searchbar__box-search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
 
-	.uni-searchbar__box-search-input {
-		flex: 1;
-		font-size: 28rpx;
-		color: #333;
-	}
+.uni-searchbar__box-icon-clear {
+  align-items: center;
+  line-height: 24px;
+  padding-left: 5px;
+}
 
-	.uni-searchbar__box-icon-clear {
-		align-items: center;
-		line-height: 24px;
-		padding-left: 5px;
-	}
+.uni-searchbar__text-placeholder {
+  font-size: 28rpx;
+  color: #808080;
+  margin-left: 5px;
+}
 
-	.uni-searchbar__text-placeholder {
-		font-size: 28rpx;
-		color: #808080;
-		margin-left: 5px;
-	}
-
-	.uni-searchbar__cancel {
-		padding-left: 10px;
-		line-height: $uni-searchbar-height;
-		font-size: 14px;
-		color: #333;
-	}
+.uni-searchbar__cancel {
+  padding-left: 10px;
+  line-height: 36px;
+  font-size: 14px;
+  color: #333;
+}
 </style>
