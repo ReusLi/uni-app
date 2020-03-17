@@ -217,7 +217,7 @@ export default {
       text,
       pagePath
     }, index) {
-      window.location.href = pagePath
+      // window.location.href = pagePath
     }
   }
 }
