@@ -9,15 +9,6 @@
       :src="thumb"
       class="uni-collapse-cell__title-img"/>
     <VUniText class="uni-collapse-cell__title-text">{{ title }}</VUniText>
-    <!-- #ifdef MP-ALIPAY -->
-    <VUniView
-      :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showAnimation === true }"
-      class="uni-collapse-cell__title-arrow">
-      <UniIcons
-        color="#bbb"
-        size="20"
-        type="arrowdown"/></VUniView>
-    <!-- #endif -->
     <!-- #ifndef MP-ALIPAY -->
     <UniIcons
       :class="{ 'uni-collapse-cell__title-arrow-active': isOpen, 'uni-collapse-cell--animation': showAnimation === true }"
