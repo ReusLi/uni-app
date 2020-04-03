@@ -105,12 +105,12 @@ export default {
 }
 
 .uni-calendar-item__weeks-box-text {
-  font-size: 28rpx;
+  font-size: 14px;
   color: #333;
 }
 
 .uni-calendar-item__weeks-lunar-text {
-  font-size: 24rpx;
+  font-size: 12px;
   color: #333;
 }
 
@@ -122,8 +122,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100rpx;
-  height: 100rpx;
+  width: 50px;
+  height: 50px;
 }
 
 .uni-calendar-item__weeks-box-circle {

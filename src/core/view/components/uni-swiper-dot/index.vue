@@ -210,7 +210,7 @@ export default {
 		/* overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; */
-		font-size: 28rpx;
+		font-size: 14px;
 		color: #fff;
 		margin: 0 15px;
 	}
@@ -225,6 +225,6 @@ export default {
 
 	.uni-swiper__dots-indexes-text {
 		color: #fff;
-		font-size: 24rpx;
+		font-size: 12px;
 	}
 </style>

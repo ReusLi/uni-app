@@ -189,7 +189,7 @@ export default {
 		/* #endif */
 		flex-direction: row;
 		justify-content: flex-start;
-		padding: 2rpx 0;
+		padding: 1px 0;
 	}
 
 	.uni-countdown__splitor {
@@ -197,9 +197,9 @@ export default {
 		display: flex;
 		/* #endif */
 		justify-content: center;
-		line-height: 48rpx;
-		padding: 5rpx;
-		font-size: 24rpx;
+		line-height: 24px;
+		padding: 3px;
+		font-size: 12px;
 	}
 
 	.uni-countdown__number {
@@ -208,11 +208,11 @@ export default {
 		/* #endif */
 		justify-content: center;
 		align-items: center;
-		width: 52rpx;
-		height: 48rpx;
-		line-height: 48rpx;
-		margin: 5rpx;
+		width: 26px;
+		height: 24px;
+		line-height: 24px;
+		margin: 3px;
 		text-align: center;
-		font-size: 24rpx;
+		font-size: 12px;
 	}
 </style>

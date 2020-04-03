@@ -351,7 +351,7 @@ export default {
 	.uni-calendar__backtoday {
 		position: absolute;
 		right: 0;
-		top: 25rpx;
+		top: 12px;
 		padding: 0 5px;
 		padding-left: 10px;
 		height: 25px;
@@ -366,7 +366,7 @@ export default {
 	.uni-calendar__header-text {
 		text-align: center;
 		width: 100px;
-		font-size: 28rpx;
+		font-size: 14px;
 		color: #333;
 	}
 

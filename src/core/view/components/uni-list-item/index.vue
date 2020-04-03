@@ -176,11 +176,11 @@ export default {
 
 <style>
 .uni-list-item {
-  font-size: 32rpx;
+  font-size: 16px;
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 30rpx;
+  padding-left: 15px;
 }
 
 .uni-list-item--disabled {
@@ -197,7 +197,7 @@ export default {
   display: flex;
   /* #endif */
   flex-direction: row;
-  padding: 30rpx;
+  padding: 15px;
   padding-left: 0;
   flex: 1;
   position: relative;
@@ -240,15 +240,15 @@ export default {
 }
 
 .uni-list-item__content-title {
-  font-size: 28rpx;
+  font-size: 14px;
   color: #3b4144;
   overflow: hidden;
 }
 
 .uni-list-item__content-note {
-  margin-top: 6rpx;
+  margin-top: 3px;
   color: #999;
-  font-size: 24rpx;
+  font-size: 12px;
   overflow: hidden;
 }
 
@@ -262,19 +262,19 @@ export default {
 }
 
 .uni-list-item__icon {
-  margin-right: 18rpx;
+  margin-right: 9px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .uni-list-item__icon-img {
-  height: 52rpx;
-  width: 52rpx;
+  height: 26px;
+  width: 26px;
 }
 
 .uni-list-item__extra-text {
   color: #999;
-  font-size: 24rpx;
+  font-size: 12px;
 }
 </style>

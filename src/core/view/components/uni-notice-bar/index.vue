@@ -326,7 +326,7 @@ export default {
 .uni-noticebar__content-text--scrollable {
   /* #ifdef APP-NVUE */
   lines: 1;
-  padding-left: 750rpx;
+  padding-left: 375px;
   /* #endif */
   /* #ifndef APP-NVUE */
   position: absolute;

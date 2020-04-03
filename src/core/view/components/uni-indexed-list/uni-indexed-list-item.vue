@@ -22,7 +22,7 @@
           class="uni-indexed-list__item-border">
           <VUniView
             v-if="showSelect"
-            style="margin-right: 20rpx;">
+            style="margin-right: 10px;">
             <UniIcons
               :type="item.checked ? 'checkbox-filled' : 'circle'"
               :color="item.checked ? '#007aff' : '#aaa'"
@@ -86,7 +86,7 @@ export default {
 	}
 
 	.uni-indexed-list__item {
-		font-size: 32rpx;
+		font-size: 16px;
 		/* #ifndef APP-NVUE */
 		display: flex;
 		/* #endif */
@@ -97,7 +97,7 @@ export default {
 	}
 
 	.uni-indexed-list__item-container {
-		padding-left: 30rpx;
+		padding-left: 15px;
 		flex: 1;
 		position: relative;
 		/* #ifndef APP-NVUE */
@@ -120,7 +120,7 @@ export default {
 		justify-content: space-between;
 		align-items: center;
 		height: 50px;
-		padding: 30rpx;
+		padding: 15px;
 		padding-left: 0;
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
@@ -154,6 +154,6 @@ export default {
 	.uni-indexed-list__title {
 		padding: 6px 12px;
 		line-height: 24px;
-		font-size: 24rpx;
+		font-size: 12px;
 	}
 </style>

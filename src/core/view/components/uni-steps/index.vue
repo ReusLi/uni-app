@@ -157,13 +157,13 @@ export default {
 	}
 
 	.uni-steps__row-title {
-		font-size: 28rpx;
+		font-size: 14px;
 		line-height: 16px;
 		text-align: center;
 	}
 
 	.uni-steps__column-title {
-		font-size: 28rpx;
+		font-size: 14px;
 		text-align: left;
 		line-height: 18px;
 	}
@@ -175,7 +175,7 @@ export default {
 	}
 
 	.uni-steps__column-desc {
-		font-size: 24rpx;
+		font-size: 12px;
 		text-align: left;
 		line-height: 18px;
 	}

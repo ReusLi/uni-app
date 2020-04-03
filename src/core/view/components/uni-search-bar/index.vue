@@ -160,7 +160,7 @@ export default {
   /* #endif */
   flex-direction: row;
   position: relative;
-  padding: 16rpx;
+  padding: 8px;
   background-color: #ffffff;
 }
 
@@ -195,7 +195,7 @@ export default {
 
 .uni-searchbar__box-search-input {
   flex: 1;
-  font-size: 28rpx;
+  font-size: 14px;
   color: #333;
 }
 
@@ -206,7 +206,7 @@ export default {
 }
 
 .uni-searchbar__text-placeholder {
-  font-size: 28rpx;
+  font-size: 14px;
   color: #808080;
   margin-left: 5px;
 }
