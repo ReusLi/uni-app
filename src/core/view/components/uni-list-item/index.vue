@@ -1,53 +1,47 @@
 <template>
-  <!-- #ifdef APP-NVUE -->
-  <VUniCell>
-    <!-- #endif -->
-    <VUniView
-      :class="disabled ? 'uni-list-item--disabled' : ''"
-      :hover-class="disabled || showSwitch ? '' : 'uni-list-item--hover'"
-      class="uni-list-item"
-      @click="onClick"
-    >
-      <VUniView :class="{'uni-list-item--first':isFirstChild}" class="uni-list-item__container">
-        <VUniView v-if="thumb" class="uni-list-item__icon">
-          <VUniImg :src="thumb" class="uni-list-item__icon-img" />
-        </VUniView>
-        <VUniView v-else-if="showExtraIcon" class="uni-list-item__icon">
-          <UniIcons
-            :color="extraIcon.color"
-            :size="extraIcon.size"
-            :type="extraIcon.type"
-            class="uni-icon-wrapper"
-          />
-        </VUniView>
-        <VUniView class="uni-list-item__content">
-          <slot>
-            <VUniText class="uni-list-item__content-title">{{ title }}</VUniText>
-            <VUniText v-if="note" class="uni-list-item__content-note">{{ note }}</VUniText>
-          </slot>
-        </VUniView>
-        <VUniView v-if="showBadge || showArrow || showSwitch" class="uni-list-item__extra">
-          <VUniText v-if="rightText" class="uni-list-item__extra-text">{{ rightText }}</VUniText>
-          <UniBadge v-if="showBadge" :type="badgeType" :text="badgeText"></UniBadge>
-          <VUniSwitch
-            v-if="showSwitch"
-            :disabled="disabled"
-            :checked="switchChecked"
-            @change="onSwitchChange"
-          ></VUniSwitch>
-          <UniIcons
-            v-if="showArrow"
-            :size="20"
-            class="uni-icon-wrapper"
-            color="#bbb"
-            type="arrowright"
-          />
-        </VUniView>
+  <VUniView
+    :class="disabled ? 'uni-list-item--disabled' : ''"
+    :hover-class="disabled || showSwitch ? '' : 'uni-list-item--hover'"
+    class="uni-list-item"
+    @click="onClick"
+  >
+    <VUniView :class="{'uni-list-item--first':isFirstChild}" class="uni-list-item__container">
+      <VUniView v-if="thumb" class="uni-list-item__icon">
+        <VUniImage :src="thumb" class="uni-list-item__icon-img" />
+      </VUniView>
+      <VUniView v-else-if="showExtraIcon" class="uni-list-item__icon">
+        <UniIcons
+          :color="extraIcon.color"
+          :size="extraIcon.size"
+          :type="extraIcon.type"
+          class="uni-icon-wrapper"
+        />
+      </VUniView>
+      <VUniView class="uni-list-item__content">
+        <slot></slot>
+        <VUniText class="uni-list-item__content-title">{{ title }}</VUniText>
+        <VUniText v-if="note" class="uni-list-item__content-note">{{ note }}</VUniText>
+      </VUniView>
+      <VUniView v-if="showBadge || showArrow || showSwitch" class="uni-list-item__extra">
+        <VUniText v-if="rightText" class="uni-list-item__extra-text">{{ rightText }}</VUniText>
+        <UniBadge v-if="showBadge" :type="badgeType" :text="badgeText"></UniBadge>
+        <VUniSwitch
+          v-if="showSwitch"
+          :disabled="disabled"
+          :checked="switchChecked"
+          @change="onSwitchChange"
+        ></VUniSwitch>
+        <slot name="right"></slot>
+        <UniIcons
+          v-if="showArrow"
+          :size="20"
+          class="uni-icon-wrapper"
+          color="#bbb"
+          type="arrowright"
+        />
       </VUniView>
     </VUniView>
-    <!-- #ifdef APP-NVUE -->
-  </VUniCell>
-  <!-- #endif -->
+  </VUniView>
 </template>
 
 <script>

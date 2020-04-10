@@ -41,7 +41,8 @@ export default {
       return this.originalWidth && this.originalHeight ? this.originalWidth / this.originalHeight : 0
     },
     realImagePath () {
-      return this.src && this.$getRealPath(this.src)
+      return this.src
+      // && this.$getRealPath(this.src)
     },
     modeStyle () {
       let size = 'auto'
