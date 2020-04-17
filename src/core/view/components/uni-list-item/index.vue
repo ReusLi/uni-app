@@ -191,7 +191,7 @@ export default {
   display: flex;
   /* #endif */
   flex-direction: row;
-  padding: 15px;
+  padding: 12px;
   padding-left: 0;
   flex: 1;
   position: relative;
@@ -199,7 +199,7 @@ export default {
   align-items: center;
   /* #ifdef APP-PLUS */
   border-top-color: #c8c7cc;
-  border-top-style: solid;
+  border-top-style: none;
   border-top-width: 0.5px;
   /* #endif */
 }
