@@ -140,6 +140,6 @@ export default {
   line-height: 25px;
   align-items: center;
   justify-content: center;
-  font-size: 28rpx;
+  font-size: 14px;
 }
 </style>

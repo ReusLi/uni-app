@@ -155,11 +155,11 @@ export default {
 
 <style>
 .uni-nav-bar-text {
-  font-size: 32rpx;
+  font-size: 16px;
 }
 
 .uni-nav-bar-right-text {
-  font-size: 28rpx;
+  font-size: 14px;
 }
 
 .uni-navbar__content {
@@ -191,7 +191,7 @@ export default {
   display: flex;
   /* #endif */
   flex-wrap: nowrap;
-  width: 120rpx;
+  width: 60px;
   padding: 0 6px;
   justify-content: center;
   align-items: center;
@@ -201,7 +201,7 @@ export default {
   /* #ifndef APP-NVUE */
   display: flex;
   /* #endif */
-  width: 150rpx;
+  width: 75px;
   justify-content: flex-start;
 }
 
@@ -209,8 +209,8 @@ export default {
   /* #ifndef APP-NVUE */
   display: flex;
   /* #endif */
-  width: 150rpx;
-  padding-right: 30rpx;
+  width: 75px;
+  padding-right: 15px;
   justify-content: flex-end;
 }
 
@@ -225,7 +225,7 @@ export default {
   flex: 1;
   align-items: center;
   justify-content: center;
-  font-size: 28rpx;
+  font-size: 14px;
 }
 
 .uni-navbar__placeholder-view {
@@ -244,7 +244,7 @@ export default {
 }
 
 .uni-navbar--border {
-  border-bottom-width: 1rpx;
+  border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #c8c7cc;
 }

@@ -173,7 +173,7 @@ export default {
 
 	.uni-tab__text {
 		margin-top: 3px;
-		font-size: 24rpx;
+		font-size: 12px;
 		color: #646566;
 	}
 
@@ -188,7 +188,7 @@ export default {
 	}
 
 	.uni-tab__cart-button-right-text {
-		font-size: 28rpx;
+		font-size: 14px;
 		color: #fff;
 	}
 

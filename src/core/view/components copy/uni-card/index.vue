@@ -169,13 +169,13 @@ export default {
 		left: 0;
 		right: 0;
 		flex-direction: row;
-		padding: 16rpx 24rpx;
+		padding: 8px 12px;
 		background-color: rgba(0, 0, 0, 0.4);
 	}
 
 	.uni-card__thumbnailimage-title-text {
 		flex: 1;
-		font-size: 28rpx;
+		font-size: 14px;
 		color: #fff;
 	}
 
@@ -215,14 +215,14 @@ export default {
 	}
 
 	.uni-card__title-content-title {
-		font-size: 28rpx;
+		font-size: 14px;
 		line-height: 22px;
 		lines: 1;
 	}
 
 	.uni-card__title-content-extra {
-		font-size: 26rpx;
-		line-height: 35rpx;
+		font-size: 13px;
+		line-height: 17.5px;
 		color: #999;
 	}
 
@@ -232,7 +232,7 @@ export default {
 		/* #endif */
 		position: relative;
 		flex-direction: row;
-		padding: 24rpx;
+		padding: 12px;
 		align-items: center;
 		border-bottom-color: #c8c7cc;
 		border-bottom-style: solid;
@@ -244,13 +244,13 @@ export default {
 		display: flex;
 		/* #endif */
 		flex-direction: row;
-		margin-right: 16rpx;
+		margin-right: 8px;
 		justify-content: flex-start;
 		align-items: center;
 	}
 
 	.uni-card__header-title-text {
-		font-size: 32rpx;
+		font-size: 16px;
 		flex: 1;
 		/* #ifndef APP-NVUE */
 		white-space: nowrap;
@@ -262,15 +262,15 @@ export default {
 		text-overflow: ellipsis;
 	}
 	.uni-card__header-extra-img {
-		height: 40rpx;
-		width: 40rpx;
-		margin-right: 16rpx;
+		height: 20px;
+		width: 20px;
+		margin-right: 8px;
 	}
 
 	.uni-card__header-extra-text {
 		flex: 1;
-		margin-left: 16rpx;
-		font-size: 28rpx;
+		margin-left: 8px;
+		font-size: 14px;
 		text-align: right;
 		color: #999;
 	}
@@ -280,11 +280,11 @@ export default {
 	}
 
 	.uni-card__content--pd {
-		padding: 24rpx;
+		padding: 12px;
 	}
 
 	.uni-card__content-extra {
-		font-size: 28rpx;
+		font-size: 14px;
 		padding-bottom: 10px;
 		color: #999;
 	}
@@ -299,7 +299,7 @@ export default {
 
 	.uni-card__footer-text {
 		color: #999;
-		font-size: 28rpx;
+		font-size: 14px;
 	}
 
 	.uni-card--shadow {

@@ -99,9 +99,9 @@ export default {
 		line-height: 30px;
 		justify-content: center;
 		color: #333;
-		border-radius: 6rpx;
+		border-radius: 3px;
 		background-color: #f8f8f8;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #f8f8f8;
 	}
@@ -125,12 +125,12 @@ export default {
 		height: 20px;
 		padding: $tag-small-pd;
 		line-height: 20px;
-		font-size: 24rpx;
+		font-size: 12px;
 	}
 
 	.uni-tag--default {
 		color: #333;
-		font-size: 28rpx;
+		font-size: 14px;
 	}
 
 	.uni-tag-text--small {
@@ -139,7 +139,7 @@ export default {
 
 	.uni-tag-text {
 		color: #fff;
-		font-size: 28rpx;
+		font-size: 14px;
 	}
 
 	.uni-tag-text--primary {
@@ -161,7 +161,7 @@ export default {
 	.uni-tag--primary {
 		color: #fff;
 		background-color: #007aff;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #007aff;
 	}
@@ -169,7 +169,7 @@ export default {
 	.primary-uni-tag--inverted {
 		color: #007aff;
 		background-color: #ffffff;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #007aff;
 	}
@@ -177,7 +177,7 @@ export default {
 	.uni-tag--success {
 		color: #fff;
 		background-color: #4cd964;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #4cd964;
 	}
@@ -185,7 +185,7 @@ export default {
 	.success-uni-tag--inverted {
 		color: #4cd964;
 		background-color: #ffffff;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #4cd964;
 	}
@@ -193,7 +193,7 @@ export default {
 	.uni-tag--warning {
 		color: #fff;
 		background-color: #f0ad4e;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #f0ad4e;
 	}
@@ -201,7 +201,7 @@ export default {
 	.warning-uni-tag--inverted {
 		color: #f0ad4e;
 		background-color: #ffffff;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #f0ad4e;
 	}
@@ -209,7 +209,7 @@ export default {
 	.uni-tag--error {
 		color: #fff;
 		background-color: #dd524d;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #dd524d;
 	}
@@ -217,7 +217,7 @@ export default {
 	.error-uni-tag--inverted {
 		color: #dd524d;
 		background-color: #ffffff;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #dd524d;
 	}
@@ -225,7 +225,7 @@ export default {
 	.uni-tag--inverted {
 		color: #333;
 		background-color: #ffffff;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #f8f8f8;
 	}

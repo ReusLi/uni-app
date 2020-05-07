@@ -17,7 +17,7 @@ export default {
 
 <style>
 .uni-status-bar {
-  width: 750rpx;
+  width: 375px;
   height: 40px;
 }
 </style>

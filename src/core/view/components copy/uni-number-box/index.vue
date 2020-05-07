@@ -146,8 +146,8 @@ export default {
 		width: 40px;
 		height: 35px;
 		text-align: center;
-		font-size: 32rpx;
-		border-width: 1rpx;
+		font-size: 16px;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #c8c7cc;
 		border-left-width: 0;
@@ -166,11 +166,11 @@ export default {
 		font-size: 20px;
 		color: #333;
 		background-color: #f8f8f8;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #c8c7cc;
-		border-top-left-radius: 6rpx;
-		border-bottom-left-radius: 6rpx;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
 		border-right-width: 0;
 	}
 
@@ -183,17 +183,17 @@ export default {
 		justify-content: center;
 		width: 35px;
 		height: 35px;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 		border-color: #c8c7cc;
-		border-top-right-radius: 6rpx;
-		border-bottom-right-radius: 6rpx;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
 		background-color: #f8f8f8;
 		border-left-width: 0;
 	}
 
 	.uni-numbox--text {
-		font-size: 40rpx;
+		font-size: 20px;
 		color: #333;
 	}
 

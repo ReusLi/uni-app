@@ -389,7 +389,7 @@ export default {
 		transition-duration: 0.2s;
 		width: 55px;
 		border-color: #DDDDDD;
-		border-width: 1rpx;
+		border-width: 1px;
 		border-style: solid;
 	}
 
