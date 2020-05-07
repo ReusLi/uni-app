@@ -13,7 +13,7 @@
 </template>
 <script scoped>
 export default {
-	name: 'single-page-header',
+	name: 'SinglePageHeader',
 	props: {
 		option: {
 			type: Object
